@@ -28,14 +28,22 @@ def detail(user_id):
 
 @api.route('/add', methods=['POST'])
 def add():
+    user = request.form['user']
+    UserAPIService.add_user(user)
     return jsonify({"retcode": 0, "errors": "", "success": "True"})
 
 
 @api.route('/remove/<user_id>', methods=['DELETE'])
 def remove(user_id):
+    UserAPIService.remove_user(user_id)
     return jsonify({"retcode": 0, "errors": "", "success": "True"})
 
 
 @api.route('/update', methods=['PUT'])
 def update():
-    return jsonify({"retcode": 0, "errors": "", "success": "True"})
+    user = request.form['user']
+    ret = UserAPIService.update_user(user)
+    if ret:
+        return jsonify({"retcode": 0, "errors": "", "success": "True"})
+    else:
+        return jsonify({"retcode": -1, "errors": "", "success": "False"})

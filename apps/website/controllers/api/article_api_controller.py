@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 __author__ = 'zhaojm'
 
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 
 from ...services.api.article_api_service import ArticleAPIService
 
@@ -27,14 +27,19 @@ def detail(article_id):
 
 @api.route('/add', methods=['POST'])
 def add():
+    article = request.form['article']
+    ArticleAPIService.add_article(article)
     return jsonify({"retcode": 0, "errors": "", "success": "True"})
 
 
 @api.route('/remove/<article_id>', methods=['DELETE'])
 def remove(article_id):
+    ArticleAPIService.remove_article(article_id)
     return jsonify({"retcode": 0, "errors": "", "success": "True"})
 
 
 @api.route('/update', methods=['PUT'])
 def update():
+    article = request.form['article']
+    ArticleAPIService.update_article(article)
     return jsonify({"retcode": 0, "errors": "", "success": "True"})
