@@ -23,6 +23,16 @@ class UserAPI {
         })
     }
 
+    add_user(user) {
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                type: "POST",
+                data: user,
+                url: "/api/user/add"
+            }).then(resolve, reject);
+        })
+    }
+
 }
 
 export default UserAPI

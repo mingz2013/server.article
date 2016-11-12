@@ -61,6 +61,24 @@ class UserService {
             console.log(errmsg)
         })
     }
+
+    add_user(user) {
+        this.user_api.add_user(user).then(function (data) {
+            //通过拿到的数据渲染页面
+            console.log(data);
+
+            if (data.retcode == 0) {
+                console.log("add success..");
+                location.reload();
+            } else {
+                console.log("error retcode...");
+                Promise.reject(data.errmsg);
+            }
+        }).catch(function (errmsg) {
+            //获取数据失败时的处理逻辑
+            console.log(errmsg)
+        })
+    }
 }
 
 export default new UserService()

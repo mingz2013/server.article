@@ -4,6 +4,7 @@ __author__ = 'zhaojm'
 from flask import request, Blueprint, jsonify
 
 from ...services.api.user_api_service import UserAPIService
+from ...models.user import User
 
 api = Blueprint('user_api_controller', __name__, url_prefix='/api/user')
 
@@ -35,9 +36,9 @@ def detail(user_id):
 @api.route('/add', methods=['POST'])
 def add():
     try:
-        user = request.form['user']
+        user = User(request.form)
         UserAPIService.add_user(user)
-        return jsonify({'retcode': 0, 'errmsg': "", 'result': user})
+        return jsonify({'retcode': 0, 'errmsg': "", 'result': "success"})
     except Exception, e:
         return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
 
