@@ -23,21 +23,9 @@ class Article(Base0):
         self.category_id = None
         self.tag_ids = []
 
-        self.state_type_id = None
+        self.status = 0  # -1: 删除, 0: 草稿, 1:发布
 
         self.view_times = None
-
-
-class StateType(Base0):
-    """
-    文章状态, 草稿,发布,删除
-    """
-
-    def __init__(self):
-        Base0.__init__(self)
-
-        self.title = None
-        self.sign = None
 
 
 class Category(Base0):

@@ -1,8 +1,19 @@
 # -*- coding:utf-8 -*-
 __author__ = 'zhaojm'
 
-from mongo_client_db import mongo_client_db
 from bson import ObjectId
+
+from mongo_client_db import mongo_client_db
+
+
+class TagDB(object):
+    def __init__(self):
+        pass
+
+
+class CategoryDB(object):
+    def __init__(self):
+        pass
 
 
 class ArticleDB(object):
