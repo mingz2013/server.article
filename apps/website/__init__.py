@@ -42,25 +42,28 @@ def register_routes(app):
     from flask.blueprints import Blueprint
 
     for module in _import_submodules_from_package(controllers):
-        # if hasattr(module, 'index'):
-        #     bp = getattr(module, 'index')
-        # elif hasattr(module, 'wx'):
-        #     bp = getattr(module, 'wx')
-        # else:
-        #     bp = getattr(module, 'api')
-        bp = getattr(module, 'api')
+        if hasattr(module, 'home'):
+            bp = getattr(module, 'home')
+        elif hasattr(module, 'wx'):
+            bp = getattr(module, 'wx')
+        else:
+            bp = getattr(module, 'api')
+
         if bp and isinstance(bp, Blueprint):
+            print bp
             app.register_blueprint(bp)
+        else:
+            app.logger.error('bp is not blusprint')
 
     @app.errorhandler(403)
     def page_403(error):
         app.logger.error("403")
         return render_template('errors/403.html'), 403
 
-    @app.errorhandler(404)
-    def error_404(error):
-        app.logger.error("404")
-        return render_template('errors/404.html'), 404
+        # @app.errorhandler(404)
+        # def error_404(error):
+        #     app.logger.error("404")
+        #     return render_template('errors/404.html'), 404
 
 
 def create_app(config_mode):

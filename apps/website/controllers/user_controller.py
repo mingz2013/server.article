@@ -7,4 +7,9 @@ from flask import request, Blueprint, current_app, jsonify
 # from ..mongo import UserDB, QQBindCodeDB, ClusterDB
 # import json
 
-api = Blueprint('users_controller', __name__, url_prefix='')
+api = Blueprint('user_controller', __name__, url_prefix='/user')
+
+
+@api.route('/', methods=['GET'])
+def index():
+    return "user index"

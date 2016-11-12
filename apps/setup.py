@@ -11,7 +11,7 @@ print "************* CURRENT CONFIG MODE: ", os.getenv('FOR_ADS')
 mode = os.getenv('FOR_ADS') or 'default'
 if mode:
     mode = mode.lower()
-    print 'current config mode %s' % mode
+    print 'current config mode: %s' % mode
 app = create_app(mode)
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-# coding:utf-8
+# -*- coding:utf-8 -*-
 __author__ = 'zhaojm'
 
 from flask import Blueprint, current_app, request, jsonify
