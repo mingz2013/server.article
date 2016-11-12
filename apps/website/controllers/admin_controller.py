@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 __author__ = 'zhaojm'
 
-from flask import Blueprint, current_app, request, jsonify, render_template, url_for, redirect
+from flask import Blueprint, current_app, request, jsonify, render_template, url_for, redirect, session
 
 # import json
 # from ..mongo import EventDB, ClusterDB, UserDB, QQBindCodeDB, AdminUserDB, ClubDB, AdminDB
@@ -19,7 +19,9 @@ api = Blueprint('admin_controller', __name__, url_prefix='/admin')
 def index():
     if AdminService.check_is_need_init():
         return redirect(url_for('init_controller.index'))
-    return render_template("admin/index.html")
+    if AdminService.check_is_login():
+        return redirect(url_for('.login'))
+    return render_template("admin/main.html")
 
 
 @api.route('/login', methods=['GET'])

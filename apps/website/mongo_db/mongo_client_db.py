@@ -3,8 +3,7 @@ __author__ = 'zhaojm'
 
 import os
 import pymongo
-import datetime
-import time
+
 import threading
 
 # lock = threading.Lock()

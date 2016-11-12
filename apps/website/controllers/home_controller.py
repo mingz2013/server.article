@@ -7,7 +7,7 @@ api = Blueprint('home_controller', __name__, url_prefix='')
 
 
 @api.route('/', methods=['GET'])
-def home():
+def index():
     return render_template("home/home.html")
 
 

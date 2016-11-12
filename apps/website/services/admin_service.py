@@ -14,3 +14,7 @@ class AdminService(object):
             return False
         else:
             return True
+
+    @staticmethod
+    def check_is_login():
+        return True

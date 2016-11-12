@@ -1,25 +1,12 @@
-{% extends 'base/base.html' %}
+{% extends 'admin/base.html' %}
 
 {% block head %}
-<title>admin base</title>
-{% endblock %}
-
-{% block body %}
-
-{% block top %}
-<ul>
-    <li><a href="{{ url_for('admin_controller.index') }}">Admin</a></li>
-    <li><a href="{{ url_for('admin_controller.users') }}">Users</a></li>
-    <li><a href="{{ url_for('admin_controller.articles') }}">Articles</a></li>
-</ul>
+<title>admin</title>
 {% endblock %}
 
 {% block sidebar %}
-admin base sidebar
 {% endblock %}
 
 {% block main %}
-admin base main
-{% endblock %}
-
+admin index main
 {% endblock %}
