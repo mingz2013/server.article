@@ -3,7 +3,23 @@
 {% block title %}admin user add{% endblock %}
 
 {% block main %}
-<div id="user_add">
+<form>
+    username: <input id="username"/><br/>
+    password: <input id="password"/><br/>
+    password2: <input id="password2"/><br/>
+    email: <input id="email"/><br/>
+    mobile: <input id="mobile"/><br/>
+    sex: <input id="sex"/><br/>
+    permission: <select id="permission">
+    <option value="admin">admin</option>
+    <option value="author">author</option>
+</select><br/>
+    <button id="add_user">add user</button>
+</form>
+<script type="text/javascript">
+    document.getElementById('add_user').onclick = function () {
+        window.user_service.add_user();
+    }
+</script>
 
-</div>
 {% endblock %}

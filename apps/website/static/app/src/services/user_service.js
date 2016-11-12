@@ -62,7 +62,15 @@ class UserService {
         })
     }
 
-    add_user(user) {
+    add_user() {
+        var user = {
+            "username": $('#username').val(),
+            "password": $('#password').val(),
+            "email": $('#email').val(),
+            "mobile": $('#mobile').val(),
+            "sex": $('#sex').val(),
+            "permission": $('#permission').val()
+        };
         this.user_api.add_user(user).then(function (data) {
             //通过拿到的数据渲染页面
             console.log(data);
