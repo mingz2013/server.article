@@ -1,9 +1,9 @@
 # -*- coding:utf-8 -*-
 __author__ = 'zhaojm'
 
-from flask import current_app
-import redis
 import os
+
+import redis
 
 REDIS_HOST = os.getenv("REDIS_HOST", '127.0.0.1')
 REDIS_PORT = os.getenv("REDIS_PORT", 6379)
@@ -41,5 +41,3 @@ redis_client.expire(ADMIN_TOKEN, 60 * 60 * 24)
 class RedisClient():
     def __init__(self):
         pass
-
-

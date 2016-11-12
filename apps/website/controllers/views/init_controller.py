@@ -9,4 +9,3 @@ api = Blueprint('init_controller', __name__, url_prefix='/init')
 @api.route('/', methods=['GET'])
 def index():
     return render_template("init/index.html")
-

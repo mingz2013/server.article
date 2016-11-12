@@ -3,7 +3,6 @@ __author__ = 'zhaojm'
 
 from flask import Blueprint, render_template, url_for, redirect
 
-
 from ...services.views.admin_service import AdminService
 
 api = Blueprint('admin_controller', __name__, url_prefix='/admin')

@@ -3,7 +3,6 @@ __author__ = 'zhaojm'
 
 from ...mongo_db.article_db import ArticleDB
 from ...mongo_db.user_db import UserDB
-from ...models.article import Article
 
 
 class ArticleAPIService(object):

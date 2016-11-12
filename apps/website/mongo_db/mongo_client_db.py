@@ -2,12 +2,8 @@
 __author__ = 'zhaojm'
 
 import os
+
 import pymongo
-
-import threading
-
-# lock = threading.Lock()
-# from bson import ObjectId
 
 MONGODB_HOST = os.getenv("MONGODB_HOST", '127.0.0.1')
 MONGODB_PORT = os.getenv("MONGODB_PORT", 27017)

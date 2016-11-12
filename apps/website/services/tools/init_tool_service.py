@@ -1,10 +1,10 @@
 # -*- coding:utf-8 -*-
 __author__ = 'zhaojm'
 
+import logging
+
 from ...models.user import User
 from ...mongo_db.user_db import UserDB
-
-import logging
 
 
 class InitToolService(object):
@@ -34,7 +34,6 @@ class InitToolService(object):
         for u in users:
             UserDB.add_user(u)
             logging.info("add user %s success..." % u.username)
-
 
     @staticmethod
     def init_dbs():

@@ -1,8 +1,9 @@
 # -*- coding:utf-8 -*-
 __author__ = 'zhaojm'
 
-from base0 import Base0
 import time
+
+from base0 import Base0
 from ..utils.utils import require_value_from_dict
 
 
