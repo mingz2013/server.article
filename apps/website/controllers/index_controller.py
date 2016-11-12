@@ -6,13 +6,18 @@ from flask import Blueprint, render_template
 api = Blueprint('index_controller', __name__, url_prefix='/')
 
 
-@api.errorhandler(404)
-def error_404():
-    return render_template('404.html'), 404
-
-
 @api.route('/', methods=['GET'])
 def index():
+    return render_template("index.html")
+
+
+@api.route('/about', methods=['GET'])
+def about():
+    return render_template("index.html")
+
+
+@api.route('/contact', methods=['GET'])
+def contact():
     return render_template("index.html")
 
 

@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 __author__ = 'Van.zx'
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 
 # from flask.ext.bootstrap import Bootstrap
 # from flask.ext.mail import Mail
@@ -56,6 +56,11 @@ def register_routes(app):
     def page_403(error):
         app.logger.error("403")
         return jsonify({"error": "Auth error"}), 403
+
+    @app.errorhandler(404)
+    def error_404(error):
+        app.logger.error("404")
+        return render_template('404.html')
 
 
 def create_app(config_mode):
