@@ -2,7 +2,7 @@
 __author__ = 'zhaojm'
 
 
-class IndexService(object):
+class HomeService(object):
     def __init__(self):
         pass
 

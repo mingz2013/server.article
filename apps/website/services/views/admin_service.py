@@ -10,7 +10,7 @@ class AdminService(object):
 
     @staticmethod
     def check_is_need_init():
-        if UserDB.check_is_have_admin():
+        if UserDB.check_is_have_admin_user():
             return False
         else:
             return True

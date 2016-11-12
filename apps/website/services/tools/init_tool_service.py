@@ -30,7 +30,7 @@ class InitToolService(object):
             User("mingz", "123456", "123456@qq.com", "12345678900", "male", PermissionDB.get_admin_permission_id())
         ]
         for u in users:
-            UserDB.add_one_user(u)
+            UserDB.add_user(u)
             logging.info("add user %s success..." % u.username)
 
     @staticmethod
@@ -43,7 +43,7 @@ class InitToolService(object):
         ]
 
         for p in permissions:
-            PermissionDB.add_one_permission(p)
+            PermissionDB.add_permission(p)
             logging.info("add permission %s: %s success..." % (p.title, p.sign))
 
     @staticmethod

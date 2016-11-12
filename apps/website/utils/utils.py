@@ -127,14 +127,3 @@ def model2dict_x(obj, keys=None):
         raise TypeError('参数类型错误')
 
     return ret
-
-
-# 获取报名标示
-def get_event_sign(list):
-    arr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V",
-           "W", "X", "Y", "Z"]
-    res = set(arr) ^ set(list)
-    if res and len(res) > 0:
-        return res.pop()
-    else:
-        return None

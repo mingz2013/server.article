@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 __author__ = 'zhaojm'
 
-from flask import Flask, jsonify, render_template
+from flask import Flask, render_template
 
 # from flask.ext.bootstrap import Bootstrap
 # from flask.ext.mail import Mail
@@ -60,10 +60,10 @@ def register_routes(app):
         app.logger.error("403")
         return render_template('errors/403.html'), 403
 
-        # @app.errorhandler(404)
-        # def error_404(error):
-        #     app.logger.error("404")
-        #     return render_template('errors/404.html'), 404
+    @app.errorhandler(404)
+    def error_404(error):
+        app.logger.error("404")
+        return render_template('errors/404.html'), 404
 
 
 def create_app(config_mode):

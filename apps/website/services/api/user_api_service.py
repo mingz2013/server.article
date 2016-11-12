@@ -26,7 +26,7 @@ class UserAPIService(object):
 
     @staticmethod
     def get_user_detail(user_id):
-        user = UserDB.get_one_user_by_id(user_id)
+        user = UserDB.get_user_by_id(user_id)
         user_copy = {}
         user_copy.update(user)
         user_copy.update({
@@ -36,12 +36,12 @@ class UserAPIService(object):
 
     @staticmethod
     def remove_user(user_id):
-        pass
+        UserDB.remove_user_by_id(user_id)
 
     @staticmethod
     def add_user(user):
-        pass
+        UserDB.add_user(user)
 
     @staticmethod
     def update_user(user):
-        pass
+        UserDB.update_user(user)
