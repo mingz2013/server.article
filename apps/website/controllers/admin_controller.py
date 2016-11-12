@@ -16,4 +16,4 @@ api = Blueprint('admin_controller', __name__, url_prefix='/admin')
 
 @api.route('/', methods=['GET'])
 def index():
-    return render_template("admin.html")
+    return render_template("index/admin.html")

@@ -15,4 +15,4 @@ api = Blueprint('article_controller', __name__, url_prefix='/article')
 
 @api.route('/', methods=['GET'])
 def index():
-    return 'robot index'
+    return 'article index'
