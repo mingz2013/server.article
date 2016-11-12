@@ -6,7 +6,7 @@ import ArticleAPI from '../api/article_api'
 
 class ArticleService {
     constructor() {
-        this.article_api = ArticleAPI()
+        this.article_api = new ArticleAPI()
     }
 
     display_article_list() {
@@ -18,4 +18,4 @@ class ArticleService {
     }
 }
 
-export default ArticleService()
+export default new ArticleService()
