@@ -3,16 +3,5 @@
 {% block title %}admin user detail{% endblock %}
 
 {% block main %}
-<table>
-    <tr>username: {{ user.username }}</tr>
-    <tr>
-        {% for user in users %}
-        <td>{{ user.index }}</td>
-        <td><a href="{{ url_for('admin_controller.user_detail', user_id=user._id) }}">{{ user.username }}</a></td>
-        <td>{{ user.permission_title }}</td>
-        <td><a href="{{ url_for('admin_controller.user_remove', user_id=user._id) }}">remove</a></td>
-        <!-- TODO 这里换成js操作 -->
-        {% endfor %}
-    </tr>
-</table>
+<div id="user_list"></div>
 {% endblock %}

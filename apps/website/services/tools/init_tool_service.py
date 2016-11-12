@@ -28,7 +28,8 @@ class InitToolService(object):
                 "password": "123456",
                 "email": "123456@qq.com",
                 "mobile": "12345678900",
-                "sex": "male"
+                "sex": "male",
+                "permission": "admin"
             })
         ]
         for u in users:
