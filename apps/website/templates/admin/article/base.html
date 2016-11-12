@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'admin/base.html' %}
 
-</body>
-</html>
+{% block title %}admin article base{% endblock %}
+
+{% block sidebar %}
+<ul>
+    <li><a href="{{ url_for('admin_controller.article_list') }}">USER LIST</a></li>
+    <li><a href="{{ url_for('admin_controller.article_add') }}">ADD USER</a></li>
+</ul>
+{% endblock %}
+
+{% block main %}
+{% endblock %}

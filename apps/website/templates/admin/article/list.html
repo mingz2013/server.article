@@ -1,14 +1,6 @@
-{% extends 'admin/base.html' %}
+{% extends 'admin/article/base.html' %}
 
-{% block head %}
-<title>admin</title>
-{% endblock %}
-
-{% block sidebar %}
-<ul>
-    <li><a href="{{ url_for('admin_controller.add_article') }}"></a>ADD ARTICLE</li>
-</ul>
-{% endblock %}
+{% block title %}admin{% endblock %}
 
 {% block main %}
 admin articles main
