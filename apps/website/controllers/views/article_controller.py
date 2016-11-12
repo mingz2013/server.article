@@ -1,14 +1,7 @@
 # -*- coding:utf-8 -*-
 __author__ = 'zhaojm'
 
-from flask import Blueprint, current_app, request, jsonify, render_template
-
-# import json
-# from ..mongo import ArticleDB
-# from threading import Thread
-# import time, datetime
-# from ..utils import model2dict
-# from ..mredis import RedisClient
+from flask import Blueprint, render_template
 
 api = Blueprint('article_controller', __name__, url_prefix='/article')
 

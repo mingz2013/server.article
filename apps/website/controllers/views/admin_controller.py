@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 __author__ = 'zhaojm'
 
-from flask import Blueprint, current_app, request, jsonify, render_template, url_for, redirect, session
+from flask import Blueprint, render_template, url_for, redirect
 
 
 from ...services.views.admin_service import AdminService
