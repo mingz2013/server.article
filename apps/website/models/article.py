@@ -27,6 +27,7 @@ class Article(Base0):
         self.tag_ids = require_value_from_dict(obj, 'tag_ids')
 
         self.status = 0  # -1: 删除, 0: 草稿, 1:发布
+        self.publish_time = None
 
         self.view_times = 0
 
