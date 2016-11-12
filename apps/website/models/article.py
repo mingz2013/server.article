@@ -2,6 +2,8 @@
 __author__ = 'zhaojm'
 
 from base0 import Base0
+import time
+from ..utils.utils import require_value_from_dict
 
 
 class Article(Base0):
@@ -9,23 +11,23 @@ class Article(Base0):
     文章
     """
 
-    def __init__(self):
+    def __init__(self, obj):
         Base0.__init__(self)
 
-        self.title = None
-        self.content = None
+        self.title = require_value_from_dict(obj, 'title')
+        self.content = require_value_from_dict(obj, 'content')
 
-        self.user_id = None
+        self.user_id = require_value_from_dict(obj, 'user_id')
 
-        self.create_time = None
-        self.update_time = None
+        self.create_time = time.time()
+        self.update_time = time.time()
 
-        self.category_id = None
-        self.tag_ids = []
+        self.category_id = require_value_from_dict(obj, 'category_id')
+        self.tag_ids = require_value_from_dict(obj, 'tag_ids')
 
         self.status = 0  # -1: 删除, 0: 草稿, 1:发布
 
-        self.view_times = None
+        self.view_times = 0
 
 
 class Category(Base0):
@@ -33,14 +35,13 @@ class Category(Base0):
     文章类别
     """
 
-    def __init__(self):
+    def __init__(self, title):
         Base0.__init__(self)
 
-        self.title = None
-
-        self.create_time = None
-        self.update_time = None
-
+        self.title = title
+        self.status = 0  # 0: 正常, -1: 删除
+        self.create_time = time.time()
+        self.update_time = time.time()
         pass
 
 
@@ -49,12 +50,11 @@ class Tag(Base0):
     文章标签
     """
 
-    def __init__(self):
+    def __init__(self, title):
         Base0.__init__(self)
 
-        self.title = None
+        self.title = title
 
-        self.create_time = None
-        self.update_time = None
-
+        self.create_time = time.time()
+        self.update_time = time.time()
         pass

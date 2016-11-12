@@ -2,40 +2,28 @@
 __author__ = 'zhaojm'
 
 from base0 import Base0
-
-import datetime
 import time
+from ..utils.utils import require_value_from_dict
+
 
 class User(Base0):
     """
     用户
     """
 
-    def __init__(self, username, password, email, mobile, sex, permission_id):
+    def __init__(self, obj):
         Base0.__init__(self)
-        if not username or not password or not email or not mobile or not sex or not permission_id:
-            raise Exception('some params is None')
-        self.username = username
-        self.password = password
 
-        self.email = email
-        self.mobile = mobile
-        self.sex = sex
+        self.username = require_value_from_dict(obj, 'username')
+        self.password = require_value_from_dict(obj, 'password')
+
+        self.email = require_value_from_dict(obj, 'email')
+        self.mobile = require_value_from_dict(obj, 'mobile')
+        self.sex = require_value_from_dict(obj, 'sex')
 
         self.create_time = time.time()
         self.update_time = time.time()
 
-        self.permission_id = permission_id
+        self.permission = require_value_from_dict(obj, 'permission')  # admin, author
 
-
-class Permission(Base0):
-    """
-    用户权限
-    """
-
-    def __init__(self, title, sign):
-        Base0.__init__(self)
-        if not title or not sign:
-            raise Exception('title or sign is None')
-        self.title = title
-        self.sign = sign
+        self.status = 0  # 0: 正常, -1: 删除
