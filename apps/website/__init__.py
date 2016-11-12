@@ -42,15 +42,14 @@ def register_routes(app):
     from flask.blueprints import Blueprint
 
     for module in _import_submodules_from_package(controllers):
-        if hasattr(module, 'home'):
-            bp = getattr(module, 'home')
+        if hasattr(module, 'main'):
+            bp = getattr(module, 'main')
         elif hasattr(module, 'wx'):
             bp = getattr(module, 'wx')
         else:
             bp = getattr(module, 'api')
 
         if bp and isinstance(bp, Blueprint):
-            print bp
             app.register_blueprint(bp)
         else:
             app.logger.error('bp is not blusprint')
