@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+# -*- coding:utf-8 -*-
+__author__ = 'zhaojm'
 
 import datetime
 from copy import deepcopy

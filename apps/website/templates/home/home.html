@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+
+{% block head %}
+
+<title>home</title>
+
+{% endblock %}
+
+{% block body %}
+
+<ul>
+    <li><a href="{{ url_for('home_controller.home') }}">Home</a></li>
+    {% for category in categories %}
+    <li><a href="{{ url_for('article_controller.category', id=category._id) }}">{{ category.title }}</a></li>
+    {% endfor %}
+    <li><a href="{{ url_for('home_controller.about') }}">About</a></li>
+    <li><a href="{{ url_for('home_controller.contact') }}">Contact</a></li>
+</ul>
+
+{% endblock %}

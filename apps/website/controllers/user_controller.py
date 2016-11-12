@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
-__author__ = 'Van'
+__author__ = 'zhaojm'
+
 from flask import request, Blueprint, current_app, jsonify
 
 # from ..utils import model2dict

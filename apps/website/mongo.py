@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-__author__ = 'Van'
+__author__ = 'zhaojm'
 
 import os
 import pymongo
