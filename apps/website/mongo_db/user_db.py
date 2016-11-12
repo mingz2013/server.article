@@ -66,11 +66,11 @@ class UserDB(object):
 
     @staticmethod
     def remove_user_by_id(user_id):
-        pass
+        mongo_client_db.users.remove({"_id": ObjectId(user_id)})
 
     @staticmethod
     def update_user(user):
-        pass
+        mongo_client_db.users.update({"_id": user._id}, user)
 
     @staticmethod
     def check_is_have_admin_user():
@@ -83,4 +83,5 @@ class UserDB(object):
 
     @staticmethod
     def get_author_info_by_id(user_id):
-        pass
+        user = mongo_client_db.users.find_one({"_id": ObjectId(user_id)}, {"username": 1, "permission_id": 1})
+        return user

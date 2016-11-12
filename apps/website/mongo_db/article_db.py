@@ -2,6 +2,7 @@
 __author__ = 'zhaojm'
 
 from mongo_client_db import mongo_client_db
+from bson import ObjectId
 
 
 class ArticleDB(object):
@@ -10,20 +11,22 @@ class ArticleDB(object):
 
     @staticmethod
     def get_article_list():
-        pass
+        article_list = mongo_client_db.articles.find()
+        return article_list
 
     @staticmethod
     def get_article_by_id(article_id):
-        pass
+        article = mongo_client_db.articles.find_one({"_id": ObjectId(article_id)})
+        return article
 
     @staticmethod
     def remove_article_by_id(article_id):
-        pass
+        mongo_client_db.articles.remove({"_id": ObjectId(article_id)})
 
     @staticmethod
     def add_article(article):
-        pass
+        mongo_client_db.articles.insert(article)
 
     @staticmethod
     def update_article(article):
-        pass
+        mongo_client_db.articles.update({"_id": ObjectId(article._id)}, article)
