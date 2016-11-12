@@ -10,7 +10,7 @@ from flask import Blueprint, current_app, request, jsonify, render_template, url
 # from ..utils import model2dict, require_value_from_dict, get_value_from_dict
 # from ..mredis import RedisClient
 # from ..models import Event
-from ..services.admin_service import AdminService
+from ...services.admin_service import AdminService
 
 api = Blueprint('admin_controller', __name__, url_prefix='/admin')
 
@@ -31,8 +31,7 @@ def login():
 
 @api.route('/user/list', methods=['GET'])
 def user_list():
-    users = AdminService.get_user_list()
-    return render_template("admin/user/list.html", users=users)
+    return render_template("admin/user/list.html")
 
 
 @api.route('/user/add', methods=['GET'])
@@ -42,13 +41,7 @@ def user_add():
 
 @api.route('/user/detail/<user_id>', methods=['GET'])
 def user_detail(user_id):
-    user = AdminService.get_one_user(user_id)
-    return render_template("admin/user/detail.html", user=user)
-
-
-@api.route('/user/remove/<user_id>', methods=['GET'])
-def user_remove(user_id):
-    return jsonify({"retcode": 0, "errors": "", "success": "True"})
+    return render_template("admin/user/detail.html", user_id=user_id)
 
 
 @api.route('/article/list', methods=['GET'])

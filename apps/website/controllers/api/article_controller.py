@@ -10,7 +10,7 @@ from flask import Blueprint, current_app, request, jsonify
 # from ..utils import model2dict
 # from ..mredis import RedisClient
 
-api = Blueprint('article_controller', __name__, url_prefix='/article')
+api = Blueprint('article_api_controller', __name__, url_prefix='/article')
 
 
 @api.route('/', methods=['GET'])
