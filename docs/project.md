@@ -8,3 +8,7 @@ SEO
 
 
 flask
+mongo
+redis
+ngnix
+uwsgi
