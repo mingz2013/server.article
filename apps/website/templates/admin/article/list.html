@@ -5,9 +5,11 @@
 {% endblock %}
 
 {% block sidebar %}
-admin users sidebar
+<ul>
+    <li><a href="{{ url_for('admin_controller.add_article') }}"></a>ADD ARTICLE</li>
+</ul>
 {% endblock %}
 
 {% block main %}
-admin users main
+admin articles main
 {% endblock %}

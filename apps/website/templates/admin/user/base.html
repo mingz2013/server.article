@@ -1,0 +1,15 @@
+{% extends 'admin/base.html' %}
+
+{% block head %}
+<title>admin user base</title>
+{% endblock %}
+
+{% block sidebar %}
+<ul>
+    <li><a href="{{ url_for('admin_controller.user_list') }}">USER LIST</a></li>
+    <li><a href="{{ url_for('admin_controller.user_add') }}">ADD USER</a></li>
+</ul>
+{% endblock %}
+
+{% block main %}
+{% endblock %}

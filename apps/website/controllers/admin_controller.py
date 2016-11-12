@@ -19,7 +19,7 @@ api = Blueprint('admin_controller', __name__, url_prefix='/admin')
 def index():
     if AdminService.check_is_need_init():
         return redirect(url_for('init_controller.index'))
-    if AdminService.check_is_login():
+    if not AdminService.check_is_login():
         return redirect(url_for('.login'))
     return render_template("admin/main.html")
 
@@ -29,11 +29,28 @@ def login():
     return render_template("admin/login.html")
 
 
-@api.route('/users', methods=['GET'])
-def users():
-    return render_template("admin/users.html")
+@api.route('/user/list', methods=['GET'])
+def user_list():
+    users = AdminService.get_user_list()
+    return render_template("admin/user/list.html", users=users)
 
 
-@api.route('/articles', methods=['GET'])
-def articles():
-    return render_template("admin/articles.html")
+@api.route('/user/add', methods=['GET'])
+def user_add():
+    return render_template("admin/user/add.html")
+
+
+@api.route('/user/detail/<user_id>', methods=['GET'])
+def user_detail(user_id):
+    user = AdminService.get_one_user(user_id)
+    return render_template("admin/user/detail.html", user=user)
+
+
+@api.route('/user/remove/<user_id>', methods=['GET'])
+def user_remove(user_id):
+    return jsonify({"retcode": 0, "errors": "", "success": "True"})
+
+
+@api.route('/article/list', methods=['GET'])
+def article_list():
+    return render_template("admin/article/list.html")

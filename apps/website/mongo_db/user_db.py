@@ -3,6 +3,7 @@ __author__ = 'zhaojm'
 
 from mongo_client_db import mongo_client_db
 from ..utils.utils import model2dict
+from bson import ObjectId
 
 
 class PermissionDB(object):
@@ -18,6 +19,11 @@ class PermissionDB(object):
         mongo_client_db.permissions.insert(model2dict(permission))
 
     @staticmethod
+    def get_permission_title_by_id(id):
+        permission = mongo_client_db.permissions.find_one({"_id": ObjectId(id)}, {"title": 1})
+        return permission['title']
+
+    @staticmethod
     def get_admin_permission_id():
         admin_permission = mongo_client_db.permissions.find_one({"title": "admin"}, {"_id": 1})
         if admin_permission:
@@ -27,7 +33,11 @@ class PermissionDB(object):
 
     @staticmethod
     def get_auther_permission_id():
-        pass
+        author_permission = mongo_client_db.permissions.find_one({"title": "auther"}, {"_id": 1})
+        if author_permission:
+            return author_permission['_id']
+        else:
+            raise Exception('not have admin permission, need run init dbs')
 
 
 class UserDB(object):
@@ -41,6 +51,18 @@ class UserDB(object):
     @staticmethod
     def add_one_user(user):
         mongo_client_db.users.insert(model2dict(user))
+
+    @staticmethod
+    def get_user_list():
+        users = mongo_client_db.users.find({}, {"permission_id": 1, "username": 1})
+        return users
+
+    @staticmethod
+    def get_one_user_by_id(user_id):
+        user = mongo_client_db.users.find_one({"_id": ObjectId(user_id)},
+                                              {"username": 1, "email": 1, "mobile": 1, "sex": 1, "create_time": 1,
+                                               "update_time": 1, "permission_id": 1})
+        return user
 
     @staticmethod
     def check_is_have_admin():
