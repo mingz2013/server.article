@@ -3,21 +3,19 @@ __author__ = 'Van.zx'
 
 from flask import Blueprint, render_template
 
-main = Blueprint('h5', __name__)  # url_prefix='/h5'
+api = Blueprint('index_controller', __name__, url_prefix='/')
 
 
-@main.errorhandler(404)
-def page_not_found():
+@api.errorhandler(404)
+def error_404():
     return render_template('404.html'), 404
-    # return render_template("h5.html")
 
 
-@main.route('/', methods=['GET'])
-@main.route('/h5/', methods=['GET'])
-def h5_index():
+@api.route('/', methods=['GET'])
+def index():
     return render_template("index.html")
 
 
-@main.route('/debug/', methods=['GET'])
-def h5_debug():
+@api.route('/debug/', methods=['GET'])
+def debug():
     return render_template("debug.html")
