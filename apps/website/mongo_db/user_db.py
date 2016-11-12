@@ -21,7 +21,7 @@ class UserDB(object):
 
     @staticmethod
     def get_user_list():
-        users = mongo_client_db.users.find({}, {"permission": 1, "username": 1})
+        users = mongo_client_db.users.find({}, {"_id": 1, "permission": 1, "username": 1})
         return users
 
     @staticmethod

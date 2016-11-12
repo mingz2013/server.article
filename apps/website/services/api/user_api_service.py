@@ -14,7 +14,11 @@ class UserAPIService(object):
         user_list = UserDB.get_user_list()
         user_list_copy = []
         for user in user_list:
-            user_list_copy.append(model2dict(user))
+            user_list_copy.append({
+                "_id": str(user.get('_id')),
+                "username": user.get('username'),
+                "permission": user.get('permission')
+            })
         return user_list_copy
 
     @staticmethod
