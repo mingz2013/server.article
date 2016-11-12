@@ -55,12 +55,12 @@ def register_routes(app):
     @app.errorhandler(403)
     def page_403(error):
         app.logger.error("403")
-        return jsonify({"error": "Auth error"}), 403
+        return render_template('errors/403.html'), 403
 
     @app.errorhandler(404)
     def error_404(error):
         app.logger.error("404")
-        return render_template('404.html')
+        return render_template('errors/404.html'), 404
 
 
 def create_app(config_mode):
