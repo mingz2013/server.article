@@ -36,5 +36,5 @@ def remove(article_id):
 
 
 @api.route('/update', methods=['PUT'])
-def add():
+def update():
     return jsonify({"retcode": 0, "errors": "", "success": "True"})
