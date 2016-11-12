@@ -15,31 +15,46 @@ def index():
 
 @api.route('/list', methods=['GET'])
 def list():
-    article_list = ArticleAPIService.get_article_list()
-    return jsonify(article_list)
+    try:
+        article_list = ArticleAPIService.get_article_list()
+        return jsonify({'retcode': 0, 'errmsg': "", 'result': article_list})
+    except Exception, e:
+        return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
 
 
 @api.route('/detail/<article_id>', methods=['GET'])
 def detail(article_id):
-    article = ArticleAPIService.get_article_detail(article_id)
-    return jsonify(article)
+    try:
+        article = ArticleAPIService.get_article_detail(article_id)
+        return jsonify({'retcode': 0, 'errmsg': "", 'result': article})
+    except Exception, e:
+        return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
 
 
 @api.route('/add', methods=['POST'])
 def add():
-    article = request.form['article']
-    ArticleAPIService.add_article(article)
-    return jsonify({"retcode": 0, "errors": "", "success": "True"})
+    try:
+        article = request.form['article']
+        ArticleAPIService.add_article(article)
+        return jsonify({'retcode': 0, 'errmsg': "", 'result': "success"})
+    except Exception, e:
+        return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
 
 
 @api.route('/remove/<article_id>', methods=['DELETE'])
 def remove(article_id):
-    ArticleAPIService.remove_article(article_id)
-    return jsonify({"retcode": 0, "errors": "", "success": "True"})
+    try:
+        ArticleAPIService.remove_article(article_id)
+        return jsonify({'retcode': 0, 'errmsg': "", 'result': 'success'})
+    except Exception, e:
+        return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
 
 
 @api.route('/update', methods=['PUT'])
 def update():
-    article = request.form['article']
-    ArticleAPIService.update_article(article)
-    return jsonify({"retcode": 0, "errors": "", "success": "True"})
+    try:
+        article = request.form['article']
+        ArticleAPIService.update_article(article)
+        return jsonify({'retcode': 0, 'errmsg': "", 'result': "success"})
+    except Exception, e:
+        return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})

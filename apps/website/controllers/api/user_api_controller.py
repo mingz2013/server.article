@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 __author__ = 'zhaojm'
 
-from flask import request, Blueprint, current_app, jsonify
+from flask import request, Blueprint, jsonify
 
 from ...services.api.user_api_service import UserAPIService
 
@@ -16,34 +16,46 @@ def index():
 
 @api.route('/list', methods=['GET'])
 def list():
-    user_list = UserAPIService.get_user_list()
-    return jsonify(user_list)
+    try:
+        user_list = UserAPIService.get_user_list()
+        return jsonify({'retcode': 0, 'errmsg': "", 'result': user_list})
+    except Exception, e:
+        return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
 
 
 @api.route('/detail/<user_id>', methods=['GET'])
 def detail(user_id):
-    user = UserAPIService.get_user_detail(user_id)
-    return jsonify(user)
+    try:
+        user = UserAPIService.get_user_detail(user_id)
+        return jsonify({'retcode': 0, 'errmsg': "", 'result': user})
+    except Exception, e:
+        return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
 
 
 @api.route('/add', methods=['POST'])
 def add():
-    user = request.form['user']
-    UserAPIService.add_user(user)
-    return jsonify({"retcode": 0, "errors": "", "success": "True"})
+    try:
+        user = request.form['user']
+        UserAPIService.add_user(user)
+        return jsonify({'retcode': 0, 'errmsg': "", 'result': user})
+    except Exception, e:
+        return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
 
 
 @api.route('/remove/<user_id>', methods=['DELETE'])
 def remove(user_id):
-    UserAPIService.remove_user(user_id)
-    return jsonify({"retcode": 0, "errors": "", "success": "True"})
+    try:
+        UserAPIService.remove_user(user_id)
+        return jsonify({'retcode': 0, 'errmsg': "", 'result': "success"})
+    except Exception, e:
+        return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
 
 
 @api.route('/update', methods=['PUT'])
 def update():
     user = request.form['user']
-    ret = UserAPIService.update_user(user)
-    if ret:
-        return jsonify({"retcode": 0, "errors": "", "success": "True"})
-    else:
-        return jsonify({"retcode": -1, "errors": "", "success": "False"})
+    try:
+        UserAPIService.update_user(user)
+        return jsonify({'retcode': 0, 'errmsg': "", 'result': "success"})
+    except Exception, e:
+        return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
