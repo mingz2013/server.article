@@ -3,13 +3,7 @@ __author__ = 'zhaojm'
 
 from flask import Blueprint, current_app, request, jsonify, render_template, url_for, redirect, session
 
-# import json
-# from ..mongo import EventDB, ClusterDB, UserDB, QQBindCodeDB, AdminUserDB, ClubDB, AdminDB
-# from threading import Thread
-# import time, datetime, random
-# from ..utils import model2dict, require_value_from_dict, get_value_from_dict
-# from ..mredis import RedisClient
-# from ..models import Event
+
 from ...services.views.admin_service import AdminService
 
 api = Blueprint('admin_controller', __name__, url_prefix='/admin')
@@ -44,6 +38,26 @@ def user_detail(user_id):
     return render_template("admin/user/detail.html", user_id=user_id)
 
 
+@api.route('/user/update/<user_id>', methods=['GET'])
+def user_update(user_id):
+    return render_template("admin/user/update.html", user_id=user_id)
+
+
 @api.route('/article/list', methods=['GET'])
 def article_list():
     return render_template("admin/article/list.html")
+
+
+@api.route('/article/add', methods=['GET'])
+def article_add():
+    return render_template("admin/article/add.html")
+
+
+@api.route('/article/detail/<article_id>', methods=['GET'])
+def article_detail(article_id):
+    return render_template("admin/article/detail.html", article_id=article_id)
+
+
+@api.route('/article/update/<article_id>', methods=['GET'])
+def article_update(article_id):
+    return render_template("admin/update/detail.html", article_id=article_id)

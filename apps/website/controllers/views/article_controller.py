@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 __author__ = 'zhaojm'
 
-from flask import Blueprint, current_app, request, jsonify
+from flask import Blueprint, current_app, request, jsonify, render_template
 
 # import json
 # from ..mongo import ArticleDB
@@ -20,4 +20,9 @@ def index():
 
 @api.route('/article/list', methods=['GET'])
 def article_list():
-    return jsonify({})
+    return render_template("home/article/list.html")
+
+
+@api.route('/article/detail', methods=['GET'])
+def article_detail():
+    return render_template("home/article/detail.html")

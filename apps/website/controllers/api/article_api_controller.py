@@ -5,7 +5,7 @@ from flask import Blueprint, jsonify
 
 from ...services.api.article_api_service import ArticleAPIService
 
-api = Blueprint('article_api_controller', __name__, url_prefix='/article')
+api = Blueprint('article_api_controller', __name__, url_prefix='/api/article')
 
 
 @api.route('/', methods=['GET'])

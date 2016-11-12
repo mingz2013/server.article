@@ -10,17 +10,3 @@ api = Blueprint('init_controller', __name__, url_prefix='/init')
 def index():
     return render_template("init/index.html")
 
-
-@api.route('/about', methods=['GET'])
-def about():
-    return render_template("home/about.html")
-
-
-@api.route('/contact', methods=['GET'])
-def contact():
-    return render_template("home/contact.html")
-
-
-@api.route('/debug', methods=['GET'])
-def debug():
-    return render_template("home/debug.html")

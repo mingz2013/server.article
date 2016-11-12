@@ -5,7 +5,7 @@ from flask import request, Blueprint, current_app, jsonify
 
 from ...services.api.user_api_service import UserAPIService
 
-api = Blueprint('user_api_controller', __name__, url_prefix='/user')
+api = Blueprint('user_api_controller', __name__, url_prefix='/api/user')
 
 
 # TODO 前端用js获取 和 操作数据, 调用这里的接口

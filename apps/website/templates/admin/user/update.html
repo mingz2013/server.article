@@ -1,0 +1,32 @@
+{% extends 'admin/user/base.html' %}
+
+{% block title %}admin user update{% endblock %}
+
+{% block main %}
+<table>
+    <tr>
+        <td>username: {{ user.username }}</td>
+    </tr>
+    <tr>
+        <td>email: {{ user.email }}</td>
+    </tr>
+    <tr>
+        <td>mobile: {{ user.mobile }}</td>
+    </tr>
+    <tr>
+        <td>sex: {{ user.sex }}</td>
+    </tr>
+    <tr>
+        <td>create time: {{ user.create_time }}</td>
+    </tr>
+    <tr>
+        <td>update time: {{ user.update_time }}</td>
+    </tr>
+    <tr>
+        <td>permission: {{ user.permission_title }}</td>
+    </tr>
+</table>
+
+<a href="{{ url_for('admin_controller.user_remove', user_id=user._id) }}">remove</a>
+
+{% endblock %}
