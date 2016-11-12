@@ -10,13 +10,21 @@ from flask import Blueprint, current_app, request, jsonify, render_template, url
 # from ..utils import model2dict, require_value_from_dict, get_value_from_dict
 # from ..mredis import RedisClient
 # from ..models import Event
+from ..services.admin_service import AdminService
 
 api = Blueprint('admin_controller', __name__, url_prefix='/admin')
 
 
 @api.route('/', methods=['GET'])
 def index():
+    if AdminService.check_is_need_init():
+        return redirect(url_for('init_controller.index'))
     return render_template("admin/index.html")
+
+
+@api.route('/login', methods=['GET'])
+def login():
+    return render_template("admin/login.html")
 
 
 @api.route('/users', methods=['GET'])

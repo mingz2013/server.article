@@ -33,4 +33,5 @@ class Permission(Base0):
     def __init__(self):
         Base0.__init__(self)
 
+        self.title = None
         self.sign = None
