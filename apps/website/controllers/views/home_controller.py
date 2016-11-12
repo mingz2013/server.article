@@ -8,7 +8,7 @@ api = Blueprint('home_controller', __name__, url_prefix='')
 
 @api.route('/', methods=['GET'])
 def index():
-    return render_template("home/home.html")
+    return render_template("home/index.html")
 
 
 @api.route('/about', methods=['GET'])
