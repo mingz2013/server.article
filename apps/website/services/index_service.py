@@ -5,3 +5,5 @@ __author__ = 'zhaojm'
 class IndexService(object):
     def __init__(self):
         pass
+
+    pass
