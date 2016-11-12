@@ -2,6 +2,7 @@
 __author__ = 'zhaojm'
 
 from ...mongo_db.user_db import UserDB
+from ...utils.utils import model2dict
 
 
 class UserAPIService(object):
@@ -11,7 +12,10 @@ class UserAPIService(object):
     @staticmethod
     def get_user_list():
         user_list = UserDB.get_user_list()
-        return user_list
+        user_list_copy = []
+        for user in user_list:
+            user_list_copy.append(model2dict(user))
+        return user_list_copy
 
     @staticmethod
     def get_user_detail(user_id):
