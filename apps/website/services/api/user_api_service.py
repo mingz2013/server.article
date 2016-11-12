@@ -1,10 +1,10 @@
 # -*- coding:utf-8 -*-
 __author__ = 'zhaojm'
 
-from ..mongo_db.user_db import UserDB, PermissionDB
+from ...mongo_db.user_db import UserDB, PermissionDB
 
 
-class UserService(object):
+class UserAPIService(object):
     def __init__(self):
         pass
 
@@ -25,7 +25,7 @@ class UserService(object):
         return user_list
 
     @staticmethod
-    def get_one_user(user_id):
+    def get_user_detail(user_id):
         user = UserDB.get_one_user_by_id(user_id)
         user_copy = {}
         user_copy.update(user)
@@ -33,3 +33,15 @@ class UserService(object):
             "permission_title": PermissionDB.get_permission_title_by_id(user['permission_id'])
         })
         return user_copy
+
+    @staticmethod
+    def remove_user(user_id):
+        pass
+
+    @staticmethod
+    def add_user(user):
+        pass
+
+    @staticmethod
+    def update_user(user):
+        pass

@@ -1,8 +1,8 @@
 # -*- coding:utf-8 -*-
 __author__ = 'zhaojm'
 
-from ..models.user import Permission, User
-from ..mongo_db.user_db import PermissionDB, UserDB
+from ...models.user import Permission, User
+from ...mongo_db.user_db import PermissionDB, UserDB
 
 import logging
 
