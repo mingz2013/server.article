@@ -3,7 +3,7 @@
 {% block title %}admin user update{% endblock %}
 
 {% block main %}
-<form>
+<div>
     username: <input id="username"/><br/>
     password: <input id="password"/><br/>
     password2: <input id="password2"/><br/>
@@ -15,7 +15,7 @@
     <option value="author">author</option>
 </select><br/>
     <button id="update">update</button>
-</form>
+</div>
 <script type="text/javascript">
     user_service.get_user_update('{{ user_id }}');
     document.getElementById('update').onclick = function () {

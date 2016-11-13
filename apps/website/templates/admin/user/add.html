@@ -3,7 +3,7 @@
 {% block title %}admin user add{% endblock %}
 
 {% block main %}
-<form>
+<div>
     username: <input id="username"/><br/>
     password: <input id="password"/><br/>
     password2: <input id="password2"/><br/>
@@ -15,7 +15,7 @@
     <option value="author">author</option>
 </select><br/>
     <button id="add_user">add user</button>
-</form>
+</div>
 <script type="text/javascript">
     document.getElementById('add_user').onclick = function () {
         window.user_service.add_user();

@@ -3,7 +3,7 @@
 {% block title %}admin article add{% endblock %}
 
 {% block main %}
-<form>
+<div>
     title: <input id="title"/><br/>
 
     content: <textarea id="content"></textarea><br/>
@@ -19,7 +19,7 @@
     <option value="1">发布</option>
 </select><br/>
     <button id="add_article">add article</button>
-</form>
+</div>
 <script type="text/javascript">
     window.article_service.display_author_list();
     document.getElementById('add_article').onclick = function () {
