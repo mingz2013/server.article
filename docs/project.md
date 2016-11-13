@@ -12,3 +12,5 @@ mongo
 redis
 ngnix
 uwsgi
+
+webpack es6 jquery

@@ -3,5 +3,15 @@
 {% block title %}admin user detail{% endblock %}
 
 {% block main %}
-<div id="user_detail"></div>
+<div id="user_detail">
+    username: <span id="username"></span><br/>
+    email: <span id="email"></span><br/>
+    mobile: <span id="mobile"></span><br/>
+    sex: <span id="sex"></span><br/>
+    permission: <span id="permission"></span><br/>
+    create time: <span id="create_time"></span><br/>
+</div>
+<script type="text/javascript">
+    window.user_service.get_user('{{ user_id }}');
+</script>
 {% endblock %}

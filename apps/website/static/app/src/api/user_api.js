@@ -14,11 +14,11 @@ class UserAPI {
         })
     }
 
-    remove_user_by_id(_id) {
+    remove_user_by_id(user_id) {
         return new Promise(function (resolve, reject) {
             $.ajax({
                 type: "DELETE",
-                url: "/api/user/remove/" + _id
+                url: "/api/user/remove/" + user_id
             }).then(resolve, reject);
         })
     }
@@ -29,6 +29,15 @@ class UserAPI {
                 type: "POST",
                 data: user,
                 url: "/api/user/add"
+            }).then(resolve, reject);
+        })
+    }
+
+    get_user(user_id) {
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                type: "GET",
+                url: "/api/user/detail/" + user_id
             }).then(resolve, reject);
         })
     }

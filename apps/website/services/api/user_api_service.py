@@ -24,7 +24,17 @@ class UserAPIService(object):
     @staticmethod
     def get_user_detail(user_id):
         user = UserDB.get_user_by_id(user_id)
-        return user
+        user_copy = {}
+        user_copy.update({
+            "_id": str(user.get('_id')),
+            "username": user.get('username'),
+            "email": user.get('email'),
+            "mobile": user.get('mobile'),
+            "sex": user.get("sex"),
+            "permission": user.get("permission"),
+            "create_time": user.get("create_time")
+        })
+        return user_copy
 
     @staticmethod
     def remove_user(user_id):

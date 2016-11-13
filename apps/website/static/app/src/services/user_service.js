@@ -77,7 +77,33 @@ class UserService {
 
             if (data.retcode == 0) {
                 console.log("add success..");
-                location.reload();
+                location.href = "/admin/user/list";
+            } else {
+                console.log("error retcode...");
+                Promise.reject(data.errmsg);
+            }
+        }).catch(function (errmsg) {
+            //获取数据失败时的处理逻辑
+            console.log(errmsg)
+        })
+    }
+
+    get_user(user_id) {
+        this.user_api.get_user(user_id).then(function (data) {
+            //通过拿到的数据渲染页面
+            console.log(data);
+
+            if (data.retcode == 0) {
+                console.log("add success..");
+                var user = data.result;
+
+                $('#username').text(user.username);
+                $('#email').text(user.email);
+                $('#mobile').text(user.mobile);
+                $('#sex').text(user.sex);
+                $('#permission').text(user.permission);
+                $('#create_time').text(user.create_time);
+
             } else {
                 console.log("error retcode...");
                 Promise.reject(data.errmsg);
