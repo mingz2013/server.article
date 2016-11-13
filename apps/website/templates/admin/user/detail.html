@@ -11,7 +11,15 @@
     permission: <span id="permission"></span><br/>
     create time: <span id="create_time"></span><br/>
 </div>
+<button id="edit">edit</button><br/>
+<button id="remove">remove</button><br/>
 <script type="text/javascript">
     window.user_service.get_user('{{ user_id }}');
+    document.getElementById('edit').onclick = function () {
+        location.href = "/admin/user/update/" + '{{ user_id }}'
+    };
+    document.getElementById('remove').onclick = function () {
+        window.user_service.remove_user('{{ user_id }}');
+    };
 </script>
 {% endblock %}

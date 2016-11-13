@@ -3,5 +3,22 @@
 {% block title %}admin article add{% endblock %}
 
 {% block main %}
-<div id="article_add"></div>
+<form>
+    title: <input id="title"/><br/>
+
+    content: <textarea id="content"/><br/>
+    author: <input id="author"/><br/>
+    category: <input id="category"/><br/>
+    tags: <input id="tags"><br/>
+    status: <select id="status">
+    <option value="0">草稿</option>
+    <option value="1">发布</option>
+</select><br/>
+    <button id="add_article">add article</button>
+</form>
+<script type="text/javascript">
+    document.getElementById('add_article').onclick = function () {
+        window.article_service.add_article();
+    }
+</script>
 {% endblock %}

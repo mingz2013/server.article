@@ -42,6 +42,16 @@ class UserAPI {
         })
     }
 
+    update_user(user) {
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                type: "PUT",
+                data: user,
+                url: "/api/user/update"
+            }).then(resolve, reject);
+        })
+    }
+
 }
 
 export default UserAPI

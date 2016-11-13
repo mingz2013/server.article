@@ -51,7 +51,7 @@ class UserService {
 
             if (data.retcode == 0) {
                 console.log("remove success..");
-                location.reload();
+                location.href = "/admin/user/list";
             } else {
                 console.log("error retcode...");
                 Promise.reject(data.errmsg);
@@ -103,6 +103,59 @@ class UserService {
                 $('#sex').text(user.sex);
                 $('#permission').text(user.permission);
                 $('#create_time').text(user.create_time);
+
+            } else {
+                console.log("error retcode...");
+                Promise.reject(data.errmsg);
+            }
+        }).catch(function (errmsg) {
+            //获取数据失败时的处理逻辑
+            console.log(errmsg)
+        })
+    }
+
+    update_user(user_id) {
+        var user = {
+            "_id": user_id,
+            "username": $('#username').val(),
+            "password": $('#password').val(),
+            "email": $('#email').val(),
+            "mobile": $('#mobile').val(),
+            "sex": $('#sex').val(),
+            "permission": $('#permission').val(),
+        };
+        this.user_api.update_user(user).then(function (data) {
+            //通过拿到的数据渲染页面
+            console.log(data);
+
+            if (data.retcode == 0) {
+                console.log("update success..");
+                location.href = "/admin/user/detail/" + user_id;
+            } else {
+                console.log("error retcode...");
+                Promise.reject(data.errmsg);
+            }
+        }).catch(function (errmsg) {
+            //获取数据失败时的处理逻辑
+            console.log(errmsg)
+        })
+    }
+
+    get_user_update(user_id) {
+        this.user_api.get_user(user_id).then(function (data) {
+            //通过拿到的数据渲染页面
+            console.log(data);
+
+            if (data.retcode == 0) {
+                console.log("add success..");
+                var user = data.result;
+
+                $('#username').val(user.username);
+                $('#email').val(user.email);
+                $('#mobile').val(user.mobile);
+                $('#sex').val(user.sex);
+                $('#permission').val(user.permission);
+                $('#create_time').val(user.create_time);
 
             } else {
                 console.log("error retcode...");

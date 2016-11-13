@@ -45,5 +45,5 @@ class UserAPIService(object):
         UserDB.add_user(user)
 
     @staticmethod
-    def update_user(user):
-        UserDB.update_user(user)
+    def update_user(user_id, user):
+        UserDB.update_user(user_id, user)

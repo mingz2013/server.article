@@ -36,8 +36,8 @@ class UserDB(object):
         mongo_client_db.users.remove({"_id": ObjectId(user_id)})
 
     @staticmethod
-    def update_user(user):
-        mongo_client_db.users.update({"_id": ObjectId(user._id)}, user)
+    def update_user(user_id, user):
+        mongo_client_db.users.update({"_id": ObjectId(user_id)}, model2dict(user))
 
     @staticmethod
     def get_admin_user():

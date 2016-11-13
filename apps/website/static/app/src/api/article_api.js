@@ -21,6 +21,16 @@ class ArticleAPI {
         })
     }
 
+    add_article(article) {
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                type: "POST",
+                data: article,
+                url: "/api/article/add"
+            }).then(resolve, reject);
+        })
+    }
+
 }
 
 export default ArticleAPI

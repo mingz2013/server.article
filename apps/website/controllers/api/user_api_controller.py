@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 __author__ = 'zhaojm'
 
-from flask import request, Blueprint, jsonify
+from flask import request, Blueprint, jsonify, current_app
 
 from ...services.api.user_api_service import UserAPIService
 from ...models.user import User
@@ -54,9 +54,12 @@ def remove(user_id):
 
 @api.route('/update', methods=['PUT'])
 def update():
-    user = request.form['user']
+    user = User(request.form)
+    user_id = str(request.form['_id'])
+    current_app.logger.info(user)
+    current_app.logger.info(user_id)
     try:
-        UserAPIService.update_user(user)
+        UserAPIService.update_user(user_id, user)
         return jsonify({'retcode': 0, 'errmsg': "", 'result': "success"})
     except Exception, e:
         return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
