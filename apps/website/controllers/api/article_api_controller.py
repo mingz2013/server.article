@@ -4,6 +4,7 @@ __author__ = 'zhaojm'
 from flask import Blueprint, jsonify, request
 
 from ...services.api.article_api_service import ArticleAPIService
+from ...models.article import Article
 
 api = Blueprint('article_api_controller', __name__, url_prefix='/api/article')
 
@@ -34,7 +35,7 @@ def detail(article_id):
 @api.route('/add', methods=['POST'])
 def add():
     try:
-        article = request.form['article']
+        article = Article(request.form)
         ArticleAPIService.add_article(article)
         return jsonify({'retcode': 0, 'errmsg': "", 'result': "success"})
     except Exception, e:
