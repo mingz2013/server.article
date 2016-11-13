@@ -6,8 +6,12 @@
 <form>
     title: <input id="title"/><br/>
 
-    content: <textarea id="content"/><br/>
-    author: <input id="author"/><br/>
+    content: <textarea id="content"></textarea><br/>
+    <!--author: <input id="author"/><br/>-->
+    author: <select id="user_id">
+    <!--<option value="0">草稿</option>-->
+    <!--<option value="1">发布</option>-->
+</select><br/>
     category: <input id="category"/><br/>
     tags: <input id="tags"><br/>
     status: <select id="status">
@@ -17,6 +21,7 @@
     <button id="add_article">add article</button>
 </form>
 <script type="text/javascript">
+    window.article_service.display_author_list();
     document.getElementById('add_article').onclick = function () {
         window.article_service.add_article();
     }
