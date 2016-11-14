@@ -1,7 +1,7 @@
 {
-  "name": "admin",
+  "name": "app",
   "version": "1.0.0",
-  "description": "admin",
+  "description": "app",
   "main": "webpack.config.js",
   "directories": {
     "doc": "docs"

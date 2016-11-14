@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 
+{% block head %}
+{{ super() }}
+<script type="text/javascript" src="{{ url_for('static', filename = 'app/dist/bundle.js') }}"></script>
+{% endblock %}
+
 {% block title %}home{% endblock %}
 
 {% block body %}
