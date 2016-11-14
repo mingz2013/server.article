@@ -23,8 +23,8 @@ class Article(Base0):
         self.create_time = time.time()
         self.update_time = time.time()
 
-        self.category_id = require_value_from_dict(obj, 'category_id')
-        self.tag_ids = require_value_from_dict(obj, 'tag_ids')
+        self.category = require_value_from_dict(obj, 'category')
+        self.tags = require_value_from_dict(obj, 'tags')
 
         self.status = 0  # -1: 删除, 0: 草稿, 1:发布
         self.publish_time = None
@@ -42,6 +42,7 @@ class Category(Base0):
 
         self.title = title
         self.status = 0  # 0: 正常, -1: 删除
+        self.article_count = 0
         self.create_time = time.time()
         self.update_time = time.time()
         pass
@@ -56,7 +57,8 @@ class Tag(Base0):
         Base0.__init__(self)
 
         self.title = title
-
+        self.status = 0  # 0: 正常, -1: 删除
+        self.article_count = 0
         self.create_time = time.time()
         self.update_time = time.time()
         pass
