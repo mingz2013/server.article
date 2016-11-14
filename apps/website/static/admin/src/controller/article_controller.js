@@ -2,7 +2,7 @@
  * Created by zhaojm on 14/11/2016.
  */
 
-import article_service from './services/article_service'
+import article_service from '../services/article_service'
 
 
 import $ from 'jQuery'
@@ -10,28 +10,34 @@ import $ from 'jQuery'
 class ArticleController {
 
     constructor() {
-        //$('#user_list').show(() => {
-        //    user_service.display_user_list();
-        //});
-        //
-        //$('#add_user').onclick = user_service.add_user();
-        //
-        //$('#user_detail').show(() => {
-        //    user_service.get_user('{{ user_id }}');
-        //});
-        //
-        //
-        //$('#user_edit').onclick = () => {
-        //    location.href = "/admin/user/update/" + '{{ user_id }}'
-        //};
-        //$('#user_remove').onclick = user_service.remove_user('{{ user_id }}');
-        //
-        //
-        //$('#user_update').show(() => {
-        //    user_service.get_user_update('{{ user_id }}');
-        //});
-        //
-        //$('#update').onclick = user_service.update_user('{{ user_id }}');
+
+        $('#article_list').show(() => {
+            article_service.display_article_list();
+        });
+
+        $('#article_add_btn').click(() => {
+            article_service.add_article();
+        });
+
+        $('#article_detail').show(() => {
+            article_service.get_article($('#article_id').val());
+        });
+
+        $('#article_edit_btn').click(() => {
+            location.href = "/admin/article/update/" + $('#article_id').val();
+        });
+        $('#article_remove_btn').click(() => {
+            article_service.remove_article($('#article_id').val());
+        });
+
+
+        $('#article_update').show(() => {
+            article_service.get_article_update($('#article_id').val());
+        });
+
+        $('#article_update_btn').click(() => {
+            article_service.update_article($('#article_id').val());
+        });
 
     }
 }

@@ -3,7 +3,7 @@
 {% block title %}admin article add{% endblock %}
 
 {% block main %}
-<div>
+<div id="article_add">
     title: <input id="title"/><br/>
 
     content: <textarea id="content"></textarea><br/>
@@ -18,12 +18,7 @@
     <option value="0">草稿</option>
     <option value="1">发布</option>
 </select><br/>
-    <button id="add_article">add article</button>
+    <button id="article_add_btn">add article</button>
 </div>
-<script type="text/javascript">
-    window.article_service.display_author_list();
-    document.getElementById('add_article').onclick = function () {
-        window.article_service.add_article();
-    }
-</script>
+
 {% endblock %}

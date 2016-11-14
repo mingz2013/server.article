@@ -4,13 +4,14 @@
 
 import '../css/style.css'
 
-import ArticleController from 'controller/article_controller'
-import UserController from 'controller/user_controller'
+import ArticleController from './controller/article_controller'
+import UserController from './controller/user_controller'
 
+import $ from 'jQuery'
 
 $(document).ready(() => {
-    ArticleController();
-    UserController();
+    new ArticleController();
+    new UserController();
 });
 
 

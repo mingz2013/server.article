@@ -8,16 +8,18 @@ class ArticleAPI {
     get_article_list() {
         return new Promise(function (resolve, reject) {
             $.ajax({
-                type: "get",
-                url: "index.aspx",
-                success: function (data) {
-                    if (data.Status == "1") {
-                        resolve(data.ResultJson); //在异步操作成功时调用
-                    } else {
-                        reject(data.ErrMsg); //在异步操作失败时调用
-                    }
-                }
-            });
+                type: "GET",
+                url: "/api/article/list"
+            }).then(resolve, reject);
+        })
+    }
+
+    remove_article_by_id(article_id) {
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                type: "DELETE",
+                url: "/api/article/remove/" + article_id
+            }).then(resolve, reject);
         })
     }
 
@@ -27,6 +29,25 @@ class ArticleAPI {
                 type: "POST",
                 data: article,
                 url: "/api/article/add"
+            }).then(resolve, reject);
+        })
+    }
+
+    get_article(article_id) {
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                type: "GET",
+                url: "/api/article/detail/" + article_id
+            }).then(resolve, reject);
+        })
+    }
+
+    update_article(article) {
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                type: "PUT",
+                data: article,
+                url: "/api/article/update"
             }).then(resolve, reject);
         })
     }
