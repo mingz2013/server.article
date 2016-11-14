@@ -14,12 +14,15 @@ import $ from 'jQuery'
 //window.article_service = article_service;
 
 
-$(document).ready(function () {
+$(document).ready(() => {
 
     $('#user_list').show(function () {
         //console.log('user_list...');
         user_service.display_user_list();
     });
+
+
+    $('#add_user').onclick = user_service.add_user();
 
 
 });
