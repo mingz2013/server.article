@@ -33,4 +33,4 @@ class CategoryService {
 
 }
 
-export default CategoryService;
+export default new CategoryService();

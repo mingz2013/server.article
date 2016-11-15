@@ -10,10 +10,6 @@ class UserService {
         this.user_api = new UserAPI()
     }
 
-    test() {
-        console.log("test...........");
-    }
-
     display_user_list() {
         var self = this;
         this.user_api.get_user_list().then((data) => {
@@ -29,18 +25,13 @@ class UserService {
 
                 user_list.forEach(({_id, username, permission}, index) => {
 
-                    let test = () => {
-                        self.test()
-                    };
                     html_str += '<tr>' +
                         '<td>' + index + '</td>' +
                         '<td><a href="/admin/user/detail/' + _id + '">' + username + '</a></td>' +
                         '<td>' + permission + '</td>' +
                         '<td><a href="/admin/user/update/' + _id + '">edit</a></td>' +
-                        '<td><a href="javascript:void(0);" onclick="test()">remove</a></td>' +
+                        '<td><a href="javascript:void(0);" onclick="window.user_service.remove_user(\'' + _id + '\')">remove</a></td>' +
                         '</tr>';
-
-                    //self.test();
 
                 });
 

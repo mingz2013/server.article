@@ -9,6 +9,9 @@ import UserController from './controller/user_controller'
 
 import $ from 'jQuery'
 
+import user_service from './services/user_service'
+window.user_service = user_service;
+
 $(document).ready(() => {
     new ArticleController();
     new UserController();
