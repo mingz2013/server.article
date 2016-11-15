@@ -20,7 +20,7 @@ class ArticleListController {
                     '<td>' + index + '</td>' +
                     '<td><a href="/admin/article/detail/' + _id + '">' + title + '</a></td>' +
                     '<td>' + author.username + '</td>' +
-                    '<td><a href="/admin/article/update/' + _id + '">edit</a></td>' +
+                    '<td><a href="/admin/article/edit/' + _id + '">edit</a></td>' +
                     '<td><a href="javascript:void(0);" onclick="window.controller.remove_article(\'' + _id + '\')">remove</a></td>' +
                     '</tr>';
             });
@@ -38,7 +38,7 @@ class ArticleListController {
         });
 
         $('#article_edit_btn').click(() => {
-            location.href = "/admin/article/update/" + $('#article_id').val();
+            location.href = "/admin/article/edit/" + $('#article_id').val();
         });
         $('#article_remove_btn').click(() => {
             article_service.remove_article($('#article_id').val());
