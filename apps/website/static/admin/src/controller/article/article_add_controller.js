@@ -9,9 +9,7 @@ import $ from 'jQuery'
 class ArticleAddController {
 
     constructor() {
-        $('#article_add').show(() => {
 
-        });
 
         $('#article_add_btn').click(() => {
             article_service.add_article();

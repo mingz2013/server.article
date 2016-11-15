@@ -10,9 +10,9 @@ class ArticleListController {
 
     constructor() {
 
-        $('#article_list').show(() => {
-            article_service.display_article_list();
-        });
+
+        article_service.display_article_list();
+
 
 
         $('#article_detail_btn').click(() => {

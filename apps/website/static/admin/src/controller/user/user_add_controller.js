@@ -8,14 +8,14 @@ import $ from 'jQuery'
 
 class UserAddController {
     constructor() {
-        $('#user_add').show(() => {
-            user_service.display_user_list();
 
-            $('#user_add_btn').click(() => {
-                user_service.add_user();
-            });
+        user_service.get_user_list();
 
+        $('#user_add_btn').click(() => {
+            user_service.add_user();
         });
+
+
     }
 }
 

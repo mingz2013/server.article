@@ -25,15 +25,29 @@ window.article_service = article_service;
 window.category_service = category_service;
 
 $(document).ready(() => {
-    new ArticleAddController();
-    new ArticleDetailController();
-    new ArticleEditController();
-    new ArticleListController();
 
-    new UserAddController();
-    new UserDetailController();
-    new UserEditController();
-    new UserListController();
+    $('#user_list').show(()=> {
+        new UserListController();
+    });
+    $('#user_detail').show(()=> {
+        new UserDetailController();
+    });
+    $('#user_update').show(()=> {
+        new UserEditController();
+    });
+    $('#user_add').show(()=> {
+        new UserAddController();
+    });
+
+    //new ArticleAddController();
+    //new ArticleDetailController();
+    //new ArticleEditController();
+    //new ArticleListController();
+
+
+
+
+
 
 });
 

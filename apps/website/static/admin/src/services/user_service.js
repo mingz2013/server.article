@@ -21,9 +21,6 @@ class UserService {
 
                 Promise.resolve(user_list);
 
-
-
-
             } else {
                 console.log("error retcode...");
                 Promise.reject(data.errmsg);

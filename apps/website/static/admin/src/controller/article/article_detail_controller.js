@@ -10,11 +10,8 @@ class ArticleDetailController {
 
     constructor() {
 
+        article_service.get_article($('#article_id').val());
 
-
-        $('#article_detail').show(() => {
-            article_service.get_article($('#article_id').val());
-        });
 
         $('#article_edit_btn').click(() => {
             location.href = "/admin/article/update/" + $('#article_id').val();

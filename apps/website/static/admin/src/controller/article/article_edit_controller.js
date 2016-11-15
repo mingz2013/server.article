@@ -10,9 +10,9 @@ class ArticleEditController {
 
     constructor() {
 
-        $('#article_update').show(() => {
-            article_service.get_article_update($('#article_id').val());
-        });
+
+        article_service.get_article_update($('#article_id').val());
+
 
         $('#article_update_btn').click(() => {
             article_service.update_article($('#article_id').val());
