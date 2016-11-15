@@ -19,7 +19,7 @@ class ArticleListController {
                 html_str += '<tr>' +
                     '<td>' + index + '</td>' +
                     '<td><a href="/admin/article/detail/' + _id + '">' + title + '</a></td>' +
-                    '<td>' + author + '</td>' +
+                    '<td>' + author.username + '</td>' +
                     '<td><a href="/admin/article/update/' + _id + '">edit</a></td>' +
                     '<td><a href="javascript:void(0);" onclick="window.controller.remove_article(\'' + _id + '\')">remove</a></td>' +
                     '</tr>';
