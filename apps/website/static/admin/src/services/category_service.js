@@ -18,7 +18,10 @@ class CategoryService {
     }
 
     get_category_list() {
-
+        return ajax_promise({
+            type: "GET",
+            url: "/api/category/list"
+        })
     }
 
 

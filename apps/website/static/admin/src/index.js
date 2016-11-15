@@ -4,10 +4,10 @@
 
 import '../css/style.css'
 
-//import ArticleAddController from './controller/article/article_add_controller'
-//import ArticleDetailController from './controller/article/article_detail_controller'
-//import ArticleEditController from './controller/article/article_edit_controller'
-//import ArticleListController from './controller/article/article_list_controller'
+import ArticleAddController from './controller/article/article_add_controller'
+import ArticleDetailController from './controller/article/article_detail_controller'
+import ArticleEditController from './controller/article/article_edit_controller'
+import ArticleListController from './controller/article/article_list_controller'
 
 import UserAddController from './controller/user/user_add_controller'
 import UserDetailController from './controller/user/user_detail_controller'
@@ -37,6 +37,19 @@ $(document).ready(() => {
     });
     $('#user_add').show(()=> {
         window.controller = new UserAddController();
+    });
+
+    $('#article_add').show(()=> {
+        window.controller = new ArticleAddController();
+    });
+    $('#article_detail').show(()=> {
+        window.controller = new ArticleDetailController();
+    });
+    $('#article_edit').show(()=> {
+        window.controller = new ArticleEditController();
+    });
+    $('#article_list').show(()=> {
+        window.controller = new ArticleListController();
     });
 
     //new ArticleAddController();

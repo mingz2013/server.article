@@ -32,33 +32,5 @@ class Article(Base0):
         self.view_times = 0
 
 
-class Category(Base0):
-    """
-    文章类别
-    """
-
-    def __init__(self, title):
-        Base0.__init__(self)
-
-        self.title = title
-        self.status = 0  # 0: 正常, -1: 删除
-        self.article_count = 0
-        self.create_time = time.time()
-        self.update_time = time.time()
-        pass
 
 
-class Tag(Base0):
-    """
-    文章标签
-    """
-
-    def __init__(self, title):
-        Base0.__init__(self)
-
-        self.title = title
-        self.status = 0  # 0: 正常, -1: 删除
-        self.article_count = 0
-        self.create_time = time.time()
-        self.update_time = time.time()
-        pass

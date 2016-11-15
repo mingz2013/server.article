@@ -11,11 +11,6 @@ class TagDB(object):
         pass
 
 
-class CategoryDB(object):
-    def __init__(self):
-        pass
-
-
 class ArticleDB(object):
     def __init__(self):
         pass
