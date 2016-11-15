@@ -17,13 +17,19 @@ class ArticleAPIService(object):
         for article in article_list:
             article_copy = {}
 
+            user = UserDB.get_author_info_by_id(article['user_id'])
+            author = {
+                "_id": user.get("id"),
+                "username": user.get("username")
+            }
+
             article_copy.update({
                 "_id": str(article.get("_id")),
                 "title": article.get("title"),
                 "content": article.get("content"),
                 "category": article.get("category"),
                 "tags": article.get("tags"),
-                "author": UserDB.get_author_info_by_id(article['user_id']),
+                "author": author,
                 "create_time": article.get("create_time"),
                 "update_time": article.get("update_time"),
                 "publish_time": article.get("publish_time"),
@@ -43,7 +49,6 @@ class ArticleAPIService(object):
             "_id": user.get("id"),
             "username": user.get("username")
         }
-
 
         article_copy = {}
         article_copy.update({
