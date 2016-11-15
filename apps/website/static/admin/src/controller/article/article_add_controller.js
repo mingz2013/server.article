@@ -43,7 +43,8 @@ class ArticleAddController {
                 "title": title
             };
             category_service.add_category(category).then((result)=> {
-                this.get_category_list()
+                this.get_category_list();
+                $('#category_add_box').toggle();
             }).catch((errmsg)=> {
                 console.log(errmsg);
             });
@@ -70,8 +71,8 @@ class ArticleAddController {
         category_service.get_category_list().then((category_list)=> {
             let html_str = '';
 
-            category_list.forEach(({category}, index) => {
-                html_str += '<input type="radio" name="category" value="' + category + '" checked="checked" />' + category
+            category_list.forEach(({title}, index) => {
+                html_str += '<input type="radio" name="category" value="' + title + '" checked="checked" />' + title
             });
 
             $('#category_box').html(html_str);

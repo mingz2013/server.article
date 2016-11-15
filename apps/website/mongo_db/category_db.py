@@ -13,7 +13,7 @@ class CategoryDB(object):
 
     @staticmethod
     def get_category_list():
-        category_list = mongo_client_db.category.find({}, {"_id": -1, "title": 1})
+        category_list = mongo_client_db.category.find({}, {"_id": 1, "title": 1})
         return category_list
 
     @staticmethod

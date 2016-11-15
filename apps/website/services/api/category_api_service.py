@@ -15,13 +15,13 @@ class CategoryAPIService(object):
         category_list_copy = []
         for category in category_list:
             category_copy = {}
-            category_copy.update(category)
             category_copy.update({
-                "index": i,
+                "_id": str(category.get('_id')),
+                "title": category.get("title"),
             })
             category_list_copy.append(category_copy)
             i += 1
-
+        # print category_list_copy
         return category_list_copy
 
         # @staticmethod
