@@ -5,7 +5,6 @@
 
 import ajax_promise from '../api/ajax_promise'
 
-import $ from 'jQuery'
 
 class ArticleService {
     constructor() {

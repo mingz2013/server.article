@@ -2,30 +2,18 @@
  * Created by zhaojm on 15/11/2016.
  */
 
-import category_api from '../api/category_api'
+import ajax_promise from '../api/ajax_promise'
 
-import $ from 'jQuery'
 
 class CategoryService {
     constructor() {
     }
 
-    add_category() {
-        let category = $('#category_add').val();
-        category_api.add_category(category).then((data) => {
-            //通过拿到的数据渲染页面
-            console.log(data);
-            if (data.retcode == 0) {
-                console.log("add success..");
-                //location.href = "/admin/article/list";
-
-            } else {
-                console.log("error retcode...");
-                Promise.reject(data.errmsg);
-            }
-        }).catch(function (errmsg) {
-            //获取数据失败时的处理逻辑
-            console.log(errmsg)
+    add_category(category) {
+        return ajax_promise({
+            type: "PUT",
+            data: category,
+            url: "/api/category/add"
         })
     }
 
