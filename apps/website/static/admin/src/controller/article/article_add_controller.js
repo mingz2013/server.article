@@ -17,12 +17,20 @@ class ArticleAddController {
 
         $('#article_add_btn').click(() => {
 
+            let tag_input_list = $('input[name="tag"]');
+
+            let tag_list = [];
+
+            tag_input_list.forEach((tag_input)=> {
+                tag_list.push(tag_input.val());
+            });
+
             let article = {
                 "user_id": $('#user_id').val(),
                 "title": $('#title').val(),
                 "content": $('#content').val(),
                 "category": $('#category').val(),
-                "tags": $('#tags').val(),
+                "tags": tag_list,
                 "status": $('#status').val()
             };
 
@@ -79,7 +87,7 @@ class ArticleAddController {
                 html_str += '<option value="' + _id + '">' + username + '</option>'
             });
 
-            $('#author_list').html(html_str);
+            $('#user_id').html(html_str);
 
         }).catch((errmsg)=> {
             console.log(errmsg);
@@ -94,7 +102,7 @@ class ArticleAddController {
                 html_str += '<input type="radio" name="category" value="' + title + '" checked="checked" />' + title
             });
 
-            $('#category_box').html(html_str);
+            $('#category').html(html_str);
         }).catch((errmsg)=> {
             console.log(errmsg);
         });

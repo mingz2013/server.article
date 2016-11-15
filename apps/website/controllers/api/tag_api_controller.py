@@ -26,7 +26,7 @@ def list():
 @api.route('/add', methods=['POST'])
 def add():
     try:
-        tag = Tag(request.form)
+        tag = Tag(request.form['title'])
         TagAPIService.add_tag(tag)
         return jsonify({'retcode': 0, 'errmsg': "", 'result': "success"})
     except Exception, e:
