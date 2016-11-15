@@ -54,4 +54,6 @@ class UserAPI {
 
 }
 
-export default UserAPI
+let user_api = new UserAPI();
+
+export default user_api;

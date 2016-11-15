@@ -54,4 +54,6 @@ class ArticleAPI {
 
 }
 
-export default ArticleAPI
+let article_api = new ArticleAPI();
+
+export default article_api;

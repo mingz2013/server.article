@@ -2,14 +2,14 @@
  * Created by zhaojm on 13/11/2016.
  */
 
-import ArticleAPI from '../api/article_api'
-import UserAPI from '../api/user_api'
+import article_api from '../api/article_api'
+import user_api from '../api/user_api'
 import $ from 'jQuery'
 
 class ArticleService {
     constructor() {
-        this.article_api = new ArticleAPI();
-        this.user_api = new UserAPI();
+        this.article_api = article_api;
+        this.user_api = user_api;
     }
 
     display_article_list() {
@@ -171,4 +171,5 @@ class ArticleService {
     }
 }
 
-export default new ArticleService()
+let article_service = new ArticleService();
+export default article_service;

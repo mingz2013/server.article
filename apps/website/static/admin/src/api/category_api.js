@@ -19,4 +19,6 @@ class CategoryAPI {
 
 }
 
-export default CategoryAPI;
+let category_api = new CategoryAPI();
+
+export default category_api;

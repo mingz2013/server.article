@@ -2,12 +2,12 @@
  * Created by zhaojm on 13/11/2016.
  */
 
-import UserAPI from '../api/user_api'
+import user_api from '../api/user_api'
 import $ from 'jQuery'
 
 class UserService {
     constructor() {
-        this.user_api = new UserAPI()
+        this.user_api = user_api;
     }
 
     display_user_list() {
@@ -174,4 +174,5 @@ class UserService {
     }
 }
 
-export default new UserService()
+let user_service = new UserService();
+export default user_service;

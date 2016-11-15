@@ -1,14 +1,14 @@
 /**
  * Created by zhaojm on 15/11/2016.
  */
-import ArticleAPI from '../api/article_api'
-import CategoryAPI from '../api/category_api'
-import UserAPI from '../api/user_api'
+import article_api from '../api/article_api'
+import category_api from '../api/category_api'
+import user_api from '../api/user_api'
 import $ from 'jQuery'
 
 class CategoryService {
     constructor() {
-        this.category_api = new CategoryAPI();
+        this.category_api = category_api;
     }
 
     add_category() {
@@ -33,4 +33,6 @@ class CategoryService {
 
 }
 
-export default new CategoryService();
+let category_service = new CategoryService();
+
+export default new category_service;
