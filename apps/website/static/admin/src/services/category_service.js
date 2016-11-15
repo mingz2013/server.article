@@ -11,7 +11,7 @@ class CategoryService {
 
     add_category(category) {
         return ajax_promise({
-            type: "PUT",
+            type: "POST",
             data: category,
             url: "/api/category/add"
         })

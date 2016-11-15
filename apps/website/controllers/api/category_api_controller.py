@@ -26,7 +26,7 @@ def list():
 @api.route('/add', methods=['POST'])
 def add():
     try:
-        category = Category(request.form)
+        category = Category(request.form['title'])
         CategoryAPIService.add_category(category)
         return jsonify({'retcode': 0, 'errmsg': "", 'result': "success"})
     except Exception, e:

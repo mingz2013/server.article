@@ -40,8 +40,8 @@ class CategoryAPIService(object):
         #
 
     @staticmethod
-    def add_article(article):
-        CategoryDB.add_category(article)
+    def add_category(category):
+        CategoryDB.add_category(category)
         #
         # @staticmethod
         # def update_article(article):

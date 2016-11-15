@@ -37,8 +37,11 @@ class ArticleAddController {
             $('#category_add_box').toggle();
         });
 
-        $('#category_add').click(() => {
-            let category = $('#category_add').val();
+        $('#category_add_btn').click(() => {
+            let title = $('#category_add').val();
+            let category = {
+                "title": title
+            };
             category_service.add_category(category).then((result)=> {
                 this.get_category_list()
             }).catch((errmsg)=> {
@@ -67,8 +70,8 @@ class ArticleAddController {
         category_service.get_category_list().then((category_list)=> {
             let html_str = '';
 
-            category_list.forEach(({_id, category}, index) => {
-                html_str += '<input type="radio" name="category" value="' + _id + '" checked="checked" />' + category
+            category_list.forEach(({category}, index) => {
+                html_str += '<input type="radio" name="category" value="' + category + '" checked="checked" />' + category
             });
 
             $('#category_box').html(html_str);
