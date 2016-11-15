@@ -8,12 +8,11 @@ import $ from 'jQuery'
 
 class CategoryService {
     constructor() {
-        this.category_api = category_api;
     }
 
     add_category() {
         let category = $('#category_add').val();
-        this.category_api.add_category(category).then(function (data) {
+        category_api.add_category(category).then(function (data) {
             //通过拿到的数据渲染页面
             console.log(data);
             if (data.retcode == 0) {

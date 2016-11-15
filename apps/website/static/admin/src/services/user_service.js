@@ -7,16 +7,13 @@ import $ from 'jQuery'
 
 class UserService {
     constructor() {
-        this.user_api = user_api;
     }
 
     display_user_list() {
-        var self = this;
-        this.user_api.get_user_list().then((data) => {
+
+        user_api.get_user_list().then((data) => {
             //通过拿到的数据渲染页面
             console.log(data);
-
-            //self.test();
 
             if (data.retcode == 0) {
 
@@ -51,7 +48,7 @@ class UserService {
     };
 
     remove_user(_id) {
-        this.user_api.remove_user_by_id(_id).then(function (data) {
+        user_api.remove_user_by_id(_id).then(function (data) {
             //通过拿到的数据渲染页面
             console.log(data);
 
@@ -77,7 +74,7 @@ class UserService {
             "sex": $('#sex').val(),
             "permission": $('#permission').val()
         };
-        this.user_api.add_user(user).then(function (data) {
+        user_api.add_user(user).then(function (data) {
             //通过拿到的数据渲染页面
             console.log(data);
 
@@ -95,7 +92,7 @@ class UserService {
     }
 
     get_user(user_id) {
-        this.user_api.get_user(user_id).then(function (data) {
+        user_api.get_user(user_id).then(function (data) {
             //通过拿到的数据渲染页面
             console.log(data);
 
@@ -130,7 +127,7 @@ class UserService {
             "sex": $('#sex').val(),
             "permission": $('#permission').val(),
         };
-        this.user_api.update_user(user).then(function (data) {
+        user_api.update_user(user).then(function (data) {
             //通过拿到的数据渲染页面
             console.log(data);
 
@@ -148,7 +145,7 @@ class UserService {
     }
 
     get_user_update(user_id) {
-        this.user_api.get_user(user_id).then(function (data) {
+        user_api.get_user(user_id).then(function (data) {
             //通过拿到的数据渲染页面
             console.log(data);
 
