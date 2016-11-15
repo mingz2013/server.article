@@ -6,7 +6,7 @@ import $ from 'jQuery'
 
 class ArticleAPI {
     get_article_list() {
-        return new Promise(function (resolve, reject) {
+        return new Promise((resolve, reject) => {
             $.ajax({
                 type: "GET",
                 url: "/api/article/list"
@@ -15,7 +15,7 @@ class ArticleAPI {
     }
 
     remove_article_by_id(article_id) {
-        return new Promise(function (resolve, reject) {
+        return new Promise((resolve, reject) => {
             $.ajax({
                 type: "DELETE",
                 url: "/api/article/remove/" + article_id
@@ -24,7 +24,7 @@ class ArticleAPI {
     }
 
     add_article(article) {
-        return new Promise(function (resolve, reject) {
+        return new Promise((resolve, reject) => {
             $.ajax({
                 type: "POST",
                 data: article,
@@ -34,7 +34,7 @@ class ArticleAPI {
     }
 
     get_article(article_id) {
-        return new Promise(function (resolve, reject) {
+        return new Promise((resolve, reject) => {
             $.ajax({
                 type: "GET",
                 url: "/api/article/detail/" + article_id
@@ -43,7 +43,7 @@ class ArticleAPI {
     }
 
     update_article(article) {
-        return new Promise(function (resolve, reject) {
+        return new Promise((resolve, reject) => {
             $.ajax({
                 type: "PUT",
                 data: article,

@@ -12,15 +12,15 @@ class ArticleService {
     }
 
     display_article_list() {
-        article_api.get_article_list().then(function (ResultJson) {
+        article_api.get_article_list().then((data) => {
             //通过拿到的数据渲染页面
-        }).catch(function (ErrMsg) {
+        }).catch(function (errmsg) {
             //获取数据失败时的处理逻辑
         })
     }
 
     remove_article(_id) {
-        article_api.remove_article_by_id(_id).then(function (data) {
+        article_api.remove_article_by_id(_id).then((data) => {
             //通过拿到的数据渲染页面
             console.log(data);
 
@@ -46,7 +46,7 @@ class ArticleService {
             "tags": $('#tags').val(),
             "status": $('#status').val()
         };
-        article_api.add_article(article).then(function (data) {
+        article_api.add_article(article).then((data) => {
             //通过拿到的数据渲染页面
             console.log(data);
 
@@ -64,7 +64,7 @@ class ArticleService {
     }
 
     get_article(article_id) {
-        article_api.get_article(article_id).then(function (data) {
+        article_api.get_article(article_id).then((data) => {
             //通过拿到的数据渲染页面
             console.log(data);
 
@@ -99,7 +99,7 @@ class ArticleService {
             "sex": $('#sex').val(),
             "permission": $('#permission').val(),
         };
-        article_api.update_article(article).then(function (data) {
+        article_api.update_article(article).then((data) => {
             //通过拿到的数据渲染页面
             console.log(data);
 
@@ -117,7 +117,7 @@ class ArticleService {
     }
 
     get_article_update(article_id) {
-        article_api.get_article(article_id).then(function (data) {
+        article_api.get_article(article_id).then((data) => {
             //通过拿到的数据渲染页面
             console.log(data);
 
@@ -143,7 +143,7 @@ class ArticleService {
     }
 
     display_author_list() {
-        user_api.get_user_list().then(function (data) {
+        user_api.get_user_list().then((data) => {
             //通过拿到的数据渲染页面
             console.log(data);
 

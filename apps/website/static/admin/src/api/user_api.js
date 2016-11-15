@@ -6,7 +6,7 @@ import $ from 'jQuery'
 
 class UserAPI {
     get_user_list() {
-        return new Promise(function (resolve, reject) {
+        return new Promise((resolve, reject) => {
             $.ajax({
                 type: "GET",
                 url: "/api/user/list"
@@ -15,7 +15,7 @@ class UserAPI {
     }
 
     remove_user_by_id(user_id) {
-        return new Promise(function (resolve, reject) {
+        return new Promise((resolve, reject) => {
             $.ajax({
                 type: "DELETE",
                 url: "/api/user/remove/" + user_id
@@ -24,7 +24,7 @@ class UserAPI {
     }
 
     add_user(user) {
-        return new Promise(function (resolve, reject) {
+        return new Promise((resolve, reject) => {
             $.ajax({
                 type: "POST",
                 data: user,
@@ -34,7 +34,7 @@ class UserAPI {
     }
 
     get_user(user_id) {
-        return new Promise(function (resolve, reject) {
+        return new Promise((resolve, reject) => {
             $.ajax({
                 type: "GET",
                 url: "/api/user/detail/" + user_id
@@ -43,7 +43,7 @@ class UserAPI {
     }
 
     update_user(user) {
-        return new Promise(function (resolve, reject) {
+        return new Promise((resolve, reject) => {
             $.ajax({
                 type: "PUT",
                 data: user,

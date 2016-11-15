@@ -7,7 +7,7 @@ class CategoryAPI {
     }
 
     add_category(category) {
-        return new Promise(function (resolve, reject) {
+        return new Promise((resolve, reject) => {
             $.ajax({
                 type: "PUT",
                 data: category,

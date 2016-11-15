@@ -48,7 +48,7 @@ class UserService {
     };
 
     remove_user(_id) {
-        user_api.remove_user_by_id(_id).then(function (data) {
+        user_api.remove_user_by_id(_id).then((data) => {
             //通过拿到的数据渲染页面
             console.log(data);
 
@@ -74,7 +74,7 @@ class UserService {
             "sex": $('#sex').val(),
             "permission": $('#permission').val()
         };
-        user_api.add_user(user).then(function (data) {
+        user_api.add_user(user).then((data) => {
             //通过拿到的数据渲染页面
             console.log(data);
 
@@ -92,7 +92,7 @@ class UserService {
     }
 
     get_user(user_id) {
-        user_api.get_user(user_id).then(function (data) {
+        user_api.get_user(user_id).then((data) => {
             //通过拿到的数据渲染页面
             console.log(data);
 
@@ -127,7 +127,7 @@ class UserService {
             "sex": $('#sex').val(),
             "permission": $('#permission').val(),
         };
-        user_api.update_user(user).then(function (data) {
+        user_api.update_user(user).then((data) => {
             //通过拿到的数据渲染页面
             console.log(data);
 
@@ -145,7 +145,7 @@ class UserService {
     }
 
     get_user_update(user_id) {
-        user_api.get_user(user_id).then(function (data) {
+        user_api.get_user(user_id).then((data) => {
             //通过拿到的数据渲染页面
             console.log(data);
 
