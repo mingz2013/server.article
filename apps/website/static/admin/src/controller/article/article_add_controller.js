@@ -13,6 +13,7 @@ class ArticleAddController {
     constructor() {
         this.get_user_list();
         this.get_category_list();
+        this.get_tag_list();
 
         $('#article_add_btn').click(() => {
 
