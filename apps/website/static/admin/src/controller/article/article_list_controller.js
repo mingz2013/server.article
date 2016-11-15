@@ -15,8 +15,8 @@ class ArticleListController {
         });
 
 
-        $('#article_detail').show(() => {
-            article_service.get_article($('#article_id').val());
+        $('#article_detail_btn').click(() => {
+            location.href = "/admin/article/detail/" + $('#article_id').val();
         });
 
         $('#article_edit_btn').click(() => {
