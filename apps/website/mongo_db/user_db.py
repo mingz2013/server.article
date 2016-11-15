@@ -50,5 +50,5 @@ class UserDB(object):
 
     @staticmethod
     def get_author_info_by_id(user_id):
-        user = mongo_client_db.users.find_one({"_id": ObjectId(user_id)}, {"username": 1, "permission": 1})
+        user = mongo_client_db.users.find_one({"_id": user_id}, {"username": 1, "permission": 1})
         return user
