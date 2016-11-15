@@ -17,8 +17,8 @@ def index():
 @api.route('/list', methods=['GET'])
 def list():
     try:
-        article_list = ArticleAPIService.get_article_list()
-        return jsonify({'retcode': 0, 'errmsg': "", 'result': article_list})
+        category_list = CategoryAPIService.get_category_list()
+        return jsonify({'retcode': 0, 'errmsg': "", 'result': category_list})
     except Exception, e:
         return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
 
