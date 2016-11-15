@@ -3,7 +3,7 @@
  */
 
 import article_api from '../api/article_api'
-import user_api from '../api/user_api'
+
 import $ from 'jQuery'
 
 class ArticleService {

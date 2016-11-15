@@ -12,6 +12,7 @@ class UserListController {
         user_service.get_user_list().then((user_list) => {
 
             let html_str = '<table><tr><td>index</td><td>username</td><td>permission</td></tr>';
+
             user_list.forEach(({_id, username, permission}, index) => {
 
                 html_str += '<tr>' +
@@ -22,13 +23,16 @@ class UserListController {
                     '<td><a href="javascript:void(0);" onclick="window.user_service.remove_user(\'' + _id + '\')">remove</a></td>' +
                     '</tr>';
             });
+
             html_str += '</table>';
+
+
             $('#user_list').html(html_str);
 
         }).catch((errmsg) => {
-            //获取数据失败时的处理逻辑
             console.log(errmsg)
         })
+
 
     }
 }

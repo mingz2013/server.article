@@ -1,0 +1,16 @@
+/**
+ * Created by zhaojm on 15/11/2016.
+ */
+let ajax_promise = (params) => {
+    return new Promise((resolve, reject) => {
+        $.ajax(params).then((data) => {
+            if (data.retcode == 0) {
+                resolve(data.result)
+            } else {
+                Promise.reject(data.errmsg);
+            }
+        }, reject);
+    })
+};
+
+export default ajax_promise;

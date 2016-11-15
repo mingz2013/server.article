@@ -9,13 +9,21 @@ import $ from 'jQuery'
 class UserAddController {
     constructor() {
 
-        user_service.get_user_list();
-
         $('#user_add_btn').click(() => {
-            user_service.add_user();
+            var user = {
+                "username": $('#username').val(),
+                "password": $('#password').val(),
+                "email": $('#email').val(),
+                "mobile": $('#mobile').val(),
+                "sex": $('#sex').val(),
+                "permission": $('#permission').val()
+            };
+
+            user_service.add_user().catch(function (errmsg) {
+                //获取数据失败时的处理逻辑
+                console.log(errmsg)
+            });
         });
-
-
     }
 }
 

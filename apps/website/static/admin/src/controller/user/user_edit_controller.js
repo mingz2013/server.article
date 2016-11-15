@@ -6,16 +6,34 @@ import user_service from '../../services/user_service'
 import $ from 'jQuery'
 
 
-class UserUpdateController {
+class UserEditController {
     constructor() {
+        let user_id = $('#user_id').val();
 
-        user_service.get_user_update($('#user_id').val());
+
+        user_service.get_user_update(user_id).then((user)=> {
+            $('#username').val(user.username);
+            $('#email').val(user.email);
+            $('#mobile').val(user.mobile);
+            $('#sex').val(user.sex);
+            $('#permission').val(user.permission);
+            $('#create_time').val(user.create_time);
+        });
 
         $('#user_update_btn').click(() => {
-            user_service.update_user($('#user_id').val());
+            let user = {
+                "_id": $('#user_id').val(),
+                "username": $('#username').val(),
+                "password": $('#password').val(),
+                "email": $('#email').val(),
+                "mobile": $('#mobile').val(),
+                "sex": $('#sex').val(),
+                "permission": $('#permission').val(),
+            };
+            user_service.update_user(user);
         });
 
     }
 }
 
-export default UserUpdateController;
+export default UserEditController;

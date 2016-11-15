@@ -37,9 +37,9 @@ def user_detail(user_id):
     return render_template("admin/user/detail.html", user_id=user_id)
 
 
-@api.route('/user/update/<user_id>', methods=['GET'])
-def user_update(user_id):
-    return render_template("admin/user/update.html", user_id=user_id)
+@api.route('/user/edit/<user_id>', methods=['GET'])
+def user_edit(user_id):
+    return render_template("admin/user/edit.html", user_id=user_id)
 
 
 @api.route('/article/list', methods=['GET'])
@@ -57,6 +57,6 @@ def article_detail(article_id):
     return render_template("admin/article/detail.html", article_id=article_id)
 
 
-@api.route('/article/update/<article_id>', methods=['GET'])
-def article_update(article_id):
-    return render_template("admin/update/detail.html", article_id=article_id)
+@api.route('/article/edit/<article_id>', methods=['GET'])
+def article_edit(article_id):
+    return render_template("admin/article/edit.html", article_id=article_id)

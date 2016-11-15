@@ -3,7 +3,7 @@
  */
 import article_api from '../api/article_api'
 import category_api from '../api/category_api'
-import user_api from '../api/user_api'
+
 import $ from 'jQuery'
 
 class CategoryService {
@@ -34,4 +34,4 @@ class CategoryService {
 
 let category_service = new CategoryService();
 
-export default new category_service;
+export default category_service;
