@@ -26,7 +26,6 @@ class UserListController {
 
             html_str += '</table>';
 
-
             $('#user_list').html(html_str);
 
         }).catch((errmsg) => {

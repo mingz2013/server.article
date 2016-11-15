@@ -19,11 +19,16 @@ class UserAddController {
                 "permission": $('#permission').val()
             };
 
-            user_service.add_user().catch(function (errmsg) {
-                //获取数据失败时的处理逻辑
+            user_service.add_user(user).then((user_id) => {
+                location.href = "/admin/user/detail/" + user_id;
+
+            }).catch((errmsg) => {
                 console.log(errmsg)
             });
+
         });
+
+
     }
 }
 

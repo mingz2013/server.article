@@ -11,13 +11,17 @@ class UserEditController {
         let user_id = $('#user_id').val();
 
 
-        user_service.get_user_update(user_id).then((user)=> {
+        user_service.get_user(user_id).then((user)=> {
+
             $('#username').val(user.username);
             $('#email').val(user.email);
             $('#mobile').val(user.mobile);
             $('#sex').val(user.sex);
             $('#permission').val(user.permission);
             $('#create_time').val(user.create_time);
+
+        }).catch((errmsg) => {
+            console.log(errmsg)
         });
 
         $('#user_update_btn').click(() => {
@@ -30,7 +34,12 @@ class UserEditController {
                 "sex": $('#sex').val(),
                 "permission": $('#permission').val(),
             };
-            user_service.update_user(user);
+
+            user_service.update_user(user).then((result)=> {
+                location.href = "/admin/user/detail/" + user_id;
+            }).catch((errmsg) => {
+                console.log(errmsg)
+            });
         });
 
     }

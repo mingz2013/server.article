@@ -20,9 +20,8 @@ class UserDetailController {
             $('#permission').text(user.permission);
             $('#create_time').text(user.create_time);
 
-        }).catch(function (errmsg) {
-            //获取数据失败时的处理逻辑
-            console.log(errmsg)
+        }).catch((errmsg) => {
+            console.log(errmsg);
         });
 
         $('#user_edit_btn').click(() => {
@@ -32,10 +31,11 @@ class UserDetailController {
         $('#user_remove_btn').click(() => {
             user_service.remove_user(user_id).then((result) => {
                 location.href = "/admin/user/list/";
-            }).catch(function (errmsg) {
-                //获取数据失败时的处理逻辑
-                console.log(errmsg)
+
+            }).catch((errmsg) => {
+                console.log(errmsg);
             });
+
         });
 
 
