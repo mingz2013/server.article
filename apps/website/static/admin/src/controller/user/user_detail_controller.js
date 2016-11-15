@@ -30,7 +30,7 @@ class UserDetailController {
 
         $('#user_remove_btn').click(() => {
             user_service.remove_user(user_id).then((result) => {
-                location.href = "/admin/user/list/";
+                location.href = "/admin/user/list";
 
             }).catch((errmsg) => {
                 console.log(errmsg);

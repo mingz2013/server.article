@@ -37,7 +37,7 @@ class UserListController {
 
     remove_user(user_id) {
         user_service.remove_user(user_id).then((result) => {
-            location.href = "/admin/user/list/";
+            location.href = "/admin/user/list";
 
         }).catch((errmsg) => {
             console.log(errmsg);

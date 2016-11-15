@@ -37,8 +37,8 @@ def detail(user_id):
 def add():
     try:
         user = User(request.form)
-        UserAPIService.add_user(user)
-        return jsonify({'retcode': 0, 'errmsg': "", 'result': "success"})
+        user_id = UserAPIService.add_user(user)
+        return jsonify({'retcode': 0, 'errmsg': "", 'result': str(user_id)})
     except Exception, e:
         return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
 

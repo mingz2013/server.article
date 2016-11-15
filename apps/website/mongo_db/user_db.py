@@ -17,7 +17,8 @@ class UserDB(object):
 
     @staticmethod
     def add_user(user):
-        mongo_client_db.users.insert(model2dict(user))
+        user_id = mongo_client_db.users.insert(model2dict(user))
+        return user_id
 
     @staticmethod
     def get_user_list():
