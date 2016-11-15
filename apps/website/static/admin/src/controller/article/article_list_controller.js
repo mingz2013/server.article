@@ -11,7 +11,11 @@ class ArticleListController {
     constructor() {
 
 
-        article_service.display_article_list();
+        article_service.get_article_list().then((article_list)=> {
+
+        }).catch((errmsg)=> {
+            console.log(errmsg);
+        });
 
 
 

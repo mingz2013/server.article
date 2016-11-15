@@ -9,8 +9,17 @@ import $ from 'jQuery'
 class ArticleDetailController {
 
     constructor() {
-
-        article_service.get_article($('#article_id').val());
+        let article_id = $('#article_id').val();
+        article_service.get_article(article_id).then((article)=> {
+            $('#username').text(article.username);
+            $('#email').text(article.email);
+            $('#mobile').text(article.mobile);
+            $('#sex').text(article.sex);
+            $('#permission').text(article.permission);
+            $('#create_time').text(article.create_time);
+        }).catch((errmsg)=> {
+            console.log(errmsg);
+        });
 
 
         $('#article_edit_btn').click(() => {

@@ -2,7 +2,8 @@
  * Created by zhaojm on 13/11/2016.
  */
 
-import article_api from '../api/article_api'
+
+import ajax_promise from '../api/ajax_promise'
 
 import $ from 'jQuery'
 
@@ -11,136 +12,44 @@ class ArticleService {
 
     }
 
-    display_article_list() {
-        article_api.get_article_list().then((data) => {
-            //通过拿到的数据渲染页面
-        }).catch(function (errmsg) {
-            //获取数据失败时的处理逻辑
+    get_article_list() {
+        return ajax_promise({
+            type: "GET",
+            url: "/api/article/list"
         })
     }
 
-    remove_article(_id) {
-        article_api.remove_article_by_id(_id).then((data) => {
-            //通过拿到的数据渲染页面
-            console.log(data);
-
-            if (data.retcode == 0) {
-                console.log("remove success..");
-                location.href = "/admin/article/list";
-            } else {
-                console.log("error retcode...");
-                Promise.reject(data.errmsg);
-            }
-        }).catch(function (errmsg) {
-            //获取数据失败时的处理逻辑
-            console.log(errmsg)
+    remove_article(article_id) {
+        return ajax_promise({
+            type: "DELETE",
+            url: "/api/article/remove/" + article_id
         })
     }
 
-    add_article() {
-        var article = {
-            "user_id": $('#user_id').val(),
-            "title": $('#title').val(),
-            "content": $('#content').val(),
-            "category": $('#category').val(),
-            "tags": $('#tags').val(),
-            "status": $('#status').val()
-        };
-        article_api.add_article(article).then((data) => {
-            //通过拿到的数据渲染页面
-            console.log(data);
+    add_article(article) {
 
-            if (data.retcode == 0) {
-                console.log("add success..");
-                location.href = "/admin/article/list";
-            } else {
-                console.log("error retcode...");
-                Promise.reject(data.errmsg);
-            }
-        }).catch(function (errmsg) {
-            //获取数据失败时的处理逻辑
-            console.log(errmsg)
+        return ajax_promise({
+            type: "POST",
+            data: article,
+            url: "/api/article/add"
         })
     }
 
     get_article(article_id) {
-        article_api.get_article(article_id).then((data) => {
-            //通过拿到的数据渲染页面
-            console.log(data);
-
-            if (data.retcode == 0) {
-                console.log("add success..");
-                var article = data.result;
-
-                $('#username').text(article.username);
-                $('#email').text(article.email);
-                $('#mobile').text(article.mobile);
-                $('#sex').text(article.sex);
-                $('#permission').text(article.permission);
-                $('#create_time').text(article.create_time);
-
-            } else {
-                console.log("error retcode...");
-                Promise.reject(data.errmsg);
-            }
-        }).catch(function (errmsg) {
-            //获取数据失败时的处理逻辑
-            console.log(errmsg)
+        return ajax_promise({
+            type: "GET",
+            url: "/api/article/detail/" + article_id
         })
     }
 
     update_article(article_id) {
-        var article = {
-            "_id": article_id,
-            "username": $('#username').val(),
-            "password": $('#password').val(),
-            "email": $('#email').val(),
-            "mobile": $('#mobile').val(),
-            "sex": $('#sex').val(),
-            "permission": $('#permission').val(),
-        };
-        article_api.update_article(article).then((data) => {
-            //通过拿到的数据渲染页面
-            console.log(data);
-
-            if (data.retcode == 0) {
-                console.log("update success..");
-                location.href = "/admin/article/detail/" + user_id;
-            } else {
-                console.log("error retcode...");
-                Promise.reject(data.errmsg);
-            }
-        }).catch(function (errmsg) {
-            //获取数据失败时的处理逻辑
-            console.log(errmsg)
+        return ajax_promise({
+            type: "PUT",
+            data: article,
+            url: "/api/article/update"
         })
     }
 
-    get_article_update(article_id) {
-        article_api.get_article(article_id).then((data) => {
-            //通过拿到的数据渲染页面
-            console.log(data);
-
-            if (data.retcode == 0) {
-                console.log("add success..");
-                var user = data.result;
-
-                $('#username').val(user.username);
-                $('#email').val(user.email);
-                $('#mobile').val(user.mobile);
-                $('#sex').val(user.sex);
-                $('#permission').val(user.permission);
-                $('#create_time').val(user.create_time);
-
-            } else {
-                console.log("error retcode...");
-                Promise.reject(data.errmsg);
-            }
-        }).catch(function (errmsg) {
-            //获取数据失败时的处理逻辑
-            console.log(errmsg)
-        })
-    }
 
     display_author_list() {
         user_api.get_user_list().then((data) => {

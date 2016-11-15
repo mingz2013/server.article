@@ -12,7 +12,22 @@ class ArticleAddController {
 
 
         $('#article_add_btn').click(() => {
-            article_service.add_article();
+
+            var article = {
+                "user_id": $('#user_id').val(),
+                "title": $('#title').val(),
+                "content": $('#content').val(),
+                "category": $('#category').val(),
+                "tags": $('#tags').val(),
+                "status": $('#status').val()
+            };
+
+            article_service.add_article(article).then((article_id)=> {
+                location.href = "/admin/article/detail/" + article_id;
+            }).catch((errmsg)=> {
+                console.log(errmsg);
+            });
+
         });
 
 

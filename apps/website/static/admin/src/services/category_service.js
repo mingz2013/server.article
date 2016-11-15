@@ -1,7 +1,7 @@
 /**
  * Created by zhaojm on 15/11/2016.
  */
-import article_api from '../api/article_api'
+
 import category_api from '../api/category_api'
 
 import $ from 'jQuery'
