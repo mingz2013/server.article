@@ -3,19 +3,19 @@
  */
 import article_service from '../../services/article_service'
 import category_service from '../../services/category_service'
+import user_service from '../../services/user_service'
 
 import $ from 'jQuery'
 
 class ArticleAddController {
 
     constructor() {
-
-        category_service.get_category_list().then().catch();
-
+        this.get_user_list();
+        this.get_category_list();
 
         $('#article_add_btn').click(() => {
 
-            var article = {
+            let article = {
                 "user_id": $('#user_id').val(),
                 "title": $('#title').val(),
                 "content": $('#content').val(),
@@ -38,9 +38,43 @@ class ArticleAddController {
         });
 
         $('#category_add').click(() => {
-            category_service.add_category().then().catch();
+            let category = $('#category_add').val();
+            category_service.add_category(category).then((result)=> {
+                this.get_category_list()
+            }).catch((errmsg)=> {
+                console.log(errmsg);
+            });
         });
 
+    }
+
+    get_user_list() {
+        user_service.get_user_list().then((user_list)=> {
+            let html_str = '';
+
+            user_list.forEach(({_id, username}, index) => {
+                html_str += '<option value="' + _id + '">' + username + '</option>'
+            });
+
+            $('#author_list').html(html_str);
+
+        }).catch((errmsg)=> {
+            console.log(errmsg);
+        });
+    }
+
+    get_category_list() {
+        category_service.get_category_list().then((category_list)=> {
+            let html_str = '';
+
+            category_list.forEach(({_id, category}, index) => {
+                html_str += '<input type="radio" name="category" value="' + _id + '" checked="checked" />' + category
+            });
+
+            $('#category_box').html(html_str);
+        }).catch((errmsg)=> {
+            console.log(errmsg);
+        });
     }
 }
 
