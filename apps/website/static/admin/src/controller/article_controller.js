@@ -3,7 +3,7 @@
  */
 
 import article_service from '../services/article_service'
-
+import category_service from '../services/category_service'
 
 import $ from 'jQuery'
 
@@ -37,6 +37,14 @@ class ArticleController {
 
         $('#article_update_btn').click(() => {
             article_service.update_article($('#article_id').val());
+        });
+
+        $('#category_add_switch').click(() => {
+            $('#category_add_box').toggle();
+        });
+
+        $('#category_add').click(() => {
+            category_service.add_category();
         });
 
     }

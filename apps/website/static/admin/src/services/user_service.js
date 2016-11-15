@@ -10,10 +10,17 @@ class UserService {
         this.user_api = new UserAPI()
     }
 
+    test() {
+        console.log("test...........");
+    }
+
     display_user_list() {
-        this.user_api.get_user_list().then(function (data) {
+        var self = this;
+        this.user_api.get_user_list().then((data) => {
             //通过拿到的数据渲染页面
             console.log(data);
+
+            //self.test();
 
             if (data.retcode == 0) {
 
@@ -21,18 +28,26 @@ class UserService {
                 let html_str = '<table><tr><td>index</td><td>username</td><td>permission</td></tr>';
 
                 user_list.forEach(({_id, username, permission}, index) => {
+
+                    let test = () => {
+                        self.test()
+                    };
                     html_str += '<tr>' +
                         '<td>' + index + '</td>' +
                         '<td><a href="/admin/user/detail/' + _id + '">' + username + '</a></td>' +
                         '<td>' + permission + '</td>' +
                         '<td><a href="/admin/user/update/' + _id + '">edit</a></td>' +
-                        '<td><a href="javascript:void(0);" onclick="window.user_service.remove_user(\'' + _id + '\')">remove</a></td>' +
+                        '<td><a href="javascript:void(0);" onclick="test()">remove</a></td>' +
                         '</tr>';
+
+                    //self.test();
+
                 });
 
                 html_str += '</table>';
 
                 $('#user_list').html(html_str);
+
 
             } else {
                 console.log("error retcode...");
