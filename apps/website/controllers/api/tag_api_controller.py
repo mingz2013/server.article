@@ -9,7 +9,7 @@ from flask import Blueprint, jsonify, request
 from ...services.api.tag_api_service import TagAPIService
 from ...models.article import Article
 
-api = Blueprint('category_api_controller', __name__, url_prefix='/api/category')
+api = Blueprint('tag_api_controller', __name__, url_prefix='/api/tag')
 
 
 @api.route('/', methods=['GET'])

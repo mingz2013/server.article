@@ -38,9 +38,10 @@ class CategoryAPIService(object):
         # def remove_article(article_id):
         #     ArticleDB.remove_article_by_id(article_id)
         #
-        # @staticmethod
-        # def add_article(article):
-        #     ArticleDB.add_article(article)
+
+    @staticmethod
+    def add_article(article):
+        CategoryDB.add_category(article)
         #
         # @staticmethod
         # def update_article(article):

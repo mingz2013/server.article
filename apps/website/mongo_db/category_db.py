@@ -14,3 +14,7 @@ class CategoryDB(object):
     def get_category_list():
         category_list = mongo_client_db.category.find()
         return category_list
+
+    @staticmethod
+    def add_category():
+        pass

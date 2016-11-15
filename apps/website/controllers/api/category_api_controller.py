@@ -4,7 +4,7 @@ __author__ = 'zhaojm'
 from flask import Blueprint, jsonify, request
 
 from ...services.api.category_api_service import CategoryAPIService
-from ...models.article import Article
+from ...models.category import Category
 
 api = Blueprint('category_api_controller', __name__, url_prefix='/api/category')
 
@@ -22,6 +22,17 @@ def list():
     except Exception, e:
         return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
 
+
+@api.route('/add', methods=['POST'])
+def add():
+    try:
+        category = Category(request.form)
+        CategoryAPIService.add_category(category)
+        return jsonify({'retcode': 0, 'errmsg': "", 'result': "success"})
+    except Exception, e:
+        return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
+#
+
 # @api.route('/detail/<article_id>', methods=['GET'])
 # def detail(article_id):
 #     try:
@@ -31,16 +42,7 @@ def list():
 #         return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
 #
 #
-# @api.route('/add', methods=['POST'])
-# def add():
-#     try:
-#         article = Article(request.form)
-#         ArticleAPIService.add_article(article)
-#         return jsonify({'retcode': 0, 'errmsg': "", 'result': "success"})
-#     except Exception, e:
-#         return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
-#
-#
+
 # @api.route('/remove/<article_id>', methods=['DELETE'])
 # def remove(article_id):
 #     try:
