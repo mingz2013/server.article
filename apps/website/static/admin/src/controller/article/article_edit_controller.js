@@ -12,19 +12,19 @@ class ArticleEditController {
         let article_id = $('#article_id').val();
 
         article_service.get_article(article_id).then((article)=> {
-            $('#title').text(article.title);
-            $('#content').text(article.content);
-            $('#author').text(article.author);
-            $('#category').text(article.category);
-            $('#tags').text(article.tags);
-            $('#create_time').text(article.create_time);
-            $('#update_time').text(article.update_time);
+            $('#title').val(article.title);
+            $('#content').val(article.content);
+            $('#author').val(article.author);
+            $('#category').val(article.category);
+            $('#tags').val(article.tags);
+            $('#create_time').val(article.create_time);
+            $('#update_time').val(article.update_time);
         }).catch((errmsg)=> {
             console.log(errmsg);
         });
 
 
-        $('#article_update_btn').click(() => {
+        $('#article_edit_btn').click(() => {
 
 
             let article = {
