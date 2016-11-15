@@ -17,6 +17,10 @@ class CategoryService {
         })
     }
 
+    get_category_list() {
+
+    }
+
 
 }
 

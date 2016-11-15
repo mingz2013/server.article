@@ -10,6 +10,8 @@ class ArticleAddController {
 
     constructor() {
 
+        category_service.get_category_list().then().catch();
+
 
         $('#article_add_btn').click(() => {
 
@@ -36,7 +38,7 @@ class ArticleAddController {
         });
 
         $('#category_add').click(() => {
-            category_service.add_category();
+            category_service.add_category().then().catch();
         });
 
     }

@@ -41,7 +41,7 @@ class ArticleService {
         })
     }
 
-    update_article(article_id) {
+    update_article(article) {
         return ajax_promise({
             type: "PUT",
             data: article,
@@ -50,7 +50,7 @@ class ArticleService {
     }
 
 
-    display_author_list() {
+    get_author_list() {
         user_api.get_user_list().then((data) => {
             //通过拿到的数据渲染页面
             console.log(data);
