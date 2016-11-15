@@ -30,11 +30,11 @@ class ArticleAddController {
                 "user_id": $('#user_id').val(),
                 "title": $('#title').val(),
                 "content": $('#content').val(),
-                "category": $('#category').val(),
+                "category": $("input[name='category']:checked").val(),
                 "tags": tag_list,
                 "status": $('#status').val()
             };
-
+            console.log(article);
             article_service.add_article(article).then((article_id)=> {
                 location.href = "/admin/article/detail/" + article_id;
             }).catch((errmsg)=> {
@@ -100,7 +100,7 @@ class ArticleAddController {
             let html_str = '';
 
             category_list.forEach(({title}, index) => {
-                html_str += '<input type="radio" name="category" value="' + title + '" checked="checked" />' + title
+                html_str += '<input type="radio" name="category" value="' + title + '"/>' + title
             });
 
             $('#category').html(html_str);
@@ -114,7 +114,7 @@ class ArticleAddController {
             let html_str = '';
 
             tag_list.forEach(({title}, index) => {
-                html_str += '<input type="checkbox" name="tag" value="' + title + '" checked="checked" />' + title
+                html_str += '<input type="checkbox" name="tag" value="' + title + '"/>' + title
             });
 
             $('#tag_box').html(html_str);

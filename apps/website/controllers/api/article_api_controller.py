@@ -35,7 +35,7 @@ def detail(article_id):
 @api.route('/add', methods=['POST'])
 def add():
     # print request.form
-    # print request.json
+    print request.json
     try:
 
         article = Article(request.json)
