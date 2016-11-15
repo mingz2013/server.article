@@ -20,7 +20,7 @@ class UserListController {
                     '<td><a href="/admin/user/detail/' + _id + '">' + username + '</a></td>' +
                     '<td>' + permission + '</td>' +
                     '<td><a href="/admin/user/update/' + _id + '">edit</a></td>' +
-                    '<td><a href="javascript:void(0);" onclick="window.user_service.remove_user(\'' + _id + '\')">remove</a></td>' +
+                    '<td><a href="javascript:void(0);" onclick="window.controller.remove_user(\'' + _id + '\')">remove</a></td>' +
                     '</tr>';
             });
 
@@ -34,6 +34,16 @@ class UserListController {
 
 
     }
+
+    remove_user(user_id) {
+        user_service.remove_user(user_id).then((result) => {
+            location.href = "/admin/user/list/";
+
+        }).catch((errmsg) => {
+            console.log(errmsg);
+        });
+    }
+
 }
 
 export default UserListController;
