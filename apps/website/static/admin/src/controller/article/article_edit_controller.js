@@ -12,12 +12,13 @@ class ArticleEditController {
         let article_id = $('#article_id').val();
 
         article_service.get_article(article_id).then((article)=> {
-            $('#username').val(article.username);
-            $('#email').val(article.email);
-            $('#mobile').val(article.mobile);
-            $('#sex').val(article.sex);
-            $('#permission').val(article.permission);
-            $('#create_time').val(article.create_time);
+            $('#title').text(article.title);
+            $('#content').text(article.content);
+            $('#author').text(article.author);
+            $('#category').text(article.category);
+            $('#tags').text(article.tags);
+            $('#create_time').text(article.create_time);
+            $('#update_time').text(article.update_time);
         }).catch((errmsg)=> {
             console.log(errmsg);
         });
@@ -26,14 +27,15 @@ class ArticleEditController {
         $('#article_update_btn').click(() => {
 
 
-            var article = {
+            let article = {
                 "_id": article_id,
-                "username": $('#username').val(),
-                "password": $('#password').val(),
-                "email": $('#email').val(),
-                "mobile": $('#mobile').val(),
-                "sex": $('#sex').val(),
-                "permission": $('#permission').val(),
+                "title": $('#title').val(),
+                "content": $('#content').val(),
+                "author": $('#author').val(),
+                "category": $('#category').val(),
+                "tags": $('#tags').val(),
+                "create_time": $('#create_time').val(),
+                "update_time": $('#update_time').val(),
             };
 
             article_service.update_article(article).then((result)=> {
