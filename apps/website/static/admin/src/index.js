@@ -6,6 +6,7 @@ import '../css/style.css'
 
 import ArticleController from './controller/article_controller'
 import UserController from './controller/user_controller'
+import CategoryController from './controller/category_controller'
 
 import $ from 'jQuery'
 
@@ -15,6 +16,7 @@ window.user_service = user_service;
 $(document).ready(() => {
     new ArticleController();
     new UserController();
+    new CategoryController();
 });
 
 

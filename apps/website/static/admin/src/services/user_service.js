@@ -18,6 +18,9 @@ class UserService {
             if (data.retcode == 0) {
 
                 let user_list = data.result;
+
+                Promise.resolve(user_list);
+
                 let html_str = '<table><tr><td>index</td><td>username</td><td>permission</td></tr>';
 
                 user_list.forEach(({_id, username, permission}, index) => {

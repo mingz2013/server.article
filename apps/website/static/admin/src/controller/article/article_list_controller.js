@@ -1,7 +1,6 @@
 /**
- * Created by zhaojm on 14/11/2016.
+ * Created by zhaojm on 15/11/2016.
  */
-
 import article_service from '../services/article_service'
 import category_service from '../services/category_service'
 
