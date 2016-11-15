@@ -57,7 +57,7 @@ def remove(article_id):
 @api.route('/update', methods=['PUT'])
 def update():
     try:
-        article = request.form['article']
+        article = Article(request.form)
         ArticleAPIService.update_article(article)
         return jsonify({'retcode': 0, 'errmsg': "", 'result': "success"})
     except Exception, e:

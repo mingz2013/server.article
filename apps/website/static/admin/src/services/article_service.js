@@ -46,7 +46,9 @@ class ArticleService {
     update_article(article) {
         return ajax_promise({
             type: "PUT",
-            data: article,
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(article),
+            dataType: "json",
             url: "/api/article/update"
         })
     }
