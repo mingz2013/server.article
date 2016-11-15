@@ -3,6 +3,7 @@
  */
 import article_service from '../../services/article_service'
 import category_service from '../../services/category_service'
+import tag_service from '../../services/tag_service'
 import user_service from '../../services/user_service'
 
 import $ from 'jQuery'
@@ -32,7 +33,6 @@ class ArticleAddController {
 
         });
 
-
         $('#category_add_switch').click(() => {
             $('#category_add_box').toggle();
         });
@@ -45,6 +45,24 @@ class ArticleAddController {
             category_service.add_category(category).then((result)=> {
                 this.get_category_list();
                 $('#category_add_box').toggle();
+            }).catch((errmsg)=> {
+                console.log(errmsg);
+            });
+        });
+
+
+        $('#tag_add_switch').click(() => {
+            $('#tag_add_box').toggle();
+        });
+
+        $('#tag_add_btn').click(() => {
+            let title = $('#tag_add').val();
+            let tag = {
+                "title": title
+            };
+            tag_service.add_tag(tag).then((result)=> {
+                this.get_tag_list();
+                $('#tag_add_box').toggle();
             }).catch((errmsg)=> {
                 console.log(errmsg);
             });
@@ -76,6 +94,20 @@ class ArticleAddController {
             });
 
             $('#category_box').html(html_str);
+        }).catch((errmsg)=> {
+            console.log(errmsg);
+        });
+    }
+
+    get_tag_list() {
+        tag_service.get_tag_list().then((tag_list)=> {
+            let html_str = '';
+
+            tag_list.forEach(({title}, index) => {
+                html_str += '<input type="checkbox" name="tag" value="' + title + '" checked="checked" />' + title
+            });
+
+            $('#tag_box').html(html_str);
         }).catch((errmsg)=> {
             console.log(errmsg);
         });

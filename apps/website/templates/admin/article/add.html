@@ -28,11 +28,24 @@
     </div>
 
 
-    tags: <input id="tags"><br/>
+    tags:
+    <div id="tag_box"></div>
+    <div>
+        <div>
+            <button id="tag_add_switch">add</button>
+        </div>
+        <div id="tag_add_box" hidden>
+            <input id="tag_add"/>
+            <button id="tag_add_btn">add</button>
+        </div>
+    </div>
+
+
     status: <select id="status">
     <option value="0">草稿</option>
     <option value="1">发布</option>
 </select><br/>
+
     <button id="article_add_btn">add article</button>
 </div>
 

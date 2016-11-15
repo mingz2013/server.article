@@ -1,13 +1,10 @@
 # -*- coding:utf-8 -*-
 __author__ = 'zhaojm'
 
-# -*- coding:utf-8 -*-
-__author__ = 'zhaojm'
-
 from flask import Blueprint, jsonify, request
 
 from ...services.api.tag_api_service import TagAPIService
-from ...models.article import Article
+from ...models.tag import Tag
 
 api = Blueprint('tag_api_controller', __name__, url_prefix='/api/tag')
 
@@ -25,6 +22,18 @@ def list():
     except Exception, e:
         return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
 
+
+@api.route('/add', methods=['POST'])
+def add():
+    try:
+        tag = Tag(request.form)
+        TagAPIService.add_tag(tag)
+        return jsonify({'retcode': 0, 'errmsg': "", 'result': "success"})
+    except Exception, e:
+        return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
+
+#
+
 # @api.route('/detail/<article_id>', methods=['GET'])
 # def detail(article_id):
 #     try:
@@ -34,16 +43,7 @@ def list():
 #         return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
 #
 #
-# @api.route('/add', methods=['POST'])
-# def add():
-#     try:
-#         article = Article(request.form)
-#         ArticleAPIService.add_article(article)
-#         return jsonify({'retcode': 0, 'errmsg': "", 'result': "success"})
-#     except Exception, e:
-#         return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
-#
-#
+
 # @api.route('/remove/<article_id>', methods=['DELETE'])
 # def remove(article_id):
 #     try:
