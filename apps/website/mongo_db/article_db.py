@@ -4,11 +4,7 @@ __author__ = 'zhaojm'
 from bson import ObjectId
 
 from mongo_client_db import mongo_client_db
-
-
-class TagDB(object):
-    def __init__(self):
-        pass
+from ..utils.utils import model2dict
 
 
 class ArticleDB(object):
@@ -31,8 +27,9 @@ class ArticleDB(object):
 
     @staticmethod
     def add_article(article):
-        mongo_client_db.articles.insert(article)
+        article_id = mongo_client_db.articles.insert(model2dict(article))
+        return article_id
 
     @staticmethod
     def update_article(article):
-        mongo_client_db.articles.update({"_id": ObjectId(article._id)}, article)
+        mongo_client_db.articles.update({"_id": ObjectId(article._id)}, model2dict(article))

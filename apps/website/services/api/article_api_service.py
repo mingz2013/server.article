@@ -16,10 +16,19 @@ class ArticleAPIService(object):
         article_list_copy = []
         for article in article_list:
             article_copy = {}
-            article_copy.update(article)
+
             article_copy.update({
-                "index": i,
-                "author": UserDB.get_author_info_by_id(article['user_id'])
+                "_id": str(article.get("_id")),
+                "title": article.get("title"),
+                "content": article.get("content"),
+                "category": article.get("category"),
+                "tags": article.get("tags"),
+                "author": UserDB.get_author_info_by_id(article['user_id']),
+                "create_time": article.get("create_time"),
+                "update_time": article.get("update_time"),
+                "publish_time": article.get("publish_time"),
+                "status": article.get("status"),
+                "view_times": article.get("view_times")
             })
             article_list_copy.append(article_copy)
             i += 1
@@ -30,9 +39,18 @@ class ArticleAPIService(object):
     def get_article_detail(article_id):
         article = ArticleDB.get_article_by_id(article_id)
         article_copy = {}
-        article_copy.update(article)
         article_copy.update({
-            "author": UserDB.get_author_info_by_id(article['user_id'])
+            "_id": str(article.get("_id")),
+            "title": article.get("title"),
+            "content": article.get("content"),
+            "category": article.get("category"),
+            "tags": article.get("tags"),
+            "author": UserDB.get_author_info_by_id(article['user_id']),
+            "create_time": article.get("create_time"),
+            "update_time": article.get("update_time"),
+            "publish_time": article.get("publish_time"),
+            "status": article.get("status"),
+            "view_times": article.get("view_times")
         })
         return article_copy
 
@@ -42,7 +60,7 @@ class ArticleAPIService(object):
 
     @staticmethod
     def add_article(article):
-        ArticleDB.add_article(article)
+        return ArticleDB.add_article(article)
 
     @staticmethod
     def update_article(article):

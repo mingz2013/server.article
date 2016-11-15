@@ -29,7 +29,9 @@ class ArticleService {
 
         return ajax_promise({
             type: "POST",
-            data: article,
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(article),
+            dataType: "json",
             url: "/api/article/add"
         })
     }

@@ -34,10 +34,13 @@ def detail(article_id):
 
 @api.route('/add', methods=['POST'])
 def add():
+    # print request.form
+    # print request.json
     try:
-        article = Article(request.form)
-        ArticleAPIService.add_article(article)
-        return jsonify({'retcode': 0, 'errmsg': "", 'result': "success"})
+
+        article = Article(request.json)
+        article_id = ArticleAPIService.add_article(article)
+        return jsonify({'retcode': 0, 'errmsg': "", 'result': str(article_id)})
     except Exception, e:
         return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
 

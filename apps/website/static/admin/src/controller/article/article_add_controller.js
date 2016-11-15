@@ -17,12 +17,13 @@ class ArticleAddController {
 
         $('#article_add_btn').click(() => {
 
-            let tag_input_list = $('input[name="tag"]');
-
+            let tag_input_list = $("input[type=checkbox][name=tag]:checked");
+            console.log(tag_input_list);
             let tag_list = [];
 
-            tag_input_list.forEach((tag_input)=> {
-                tag_list.push(tag_input.val());
+            tag_input_list.each((index, tag_input)=> {
+                //tag_list += tag_input.value + ",";
+                tag_list.push(tag_input.value);
             });
 
             let article = {
