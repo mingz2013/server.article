@@ -3,7 +3,19 @@
 {% block title %}article base{% endblock %}
 
 {% block sidebar %}
-<div id="side_bar"></div>
+<div id="side_bar">
+    <ul>
+        {% for category in category_list %}
+        <li><a href="{{ url_for('article_controller.article_list_by_category', category=category.title) }}">{{
+            category.title }}</a></li>
+        {% endfor %}
+    </ul>
+    <ul>
+        {% for tag in tag_list %}
+        <li><a href="{{ url_for('article_controller.article_list_by_tag', tag=tag.title) }}">{{ tag.title }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
 
 {% block main %}
