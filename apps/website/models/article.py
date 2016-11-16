@@ -17,6 +17,7 @@ class Article(Base0):
 
         self.title = require_value_from_dict(obj, 'title')
         self.content = require_value_from_dict(obj, 'content')
+        # self.summary = require_value_from_dict(obj, 'summary') # 摘要
 
         # self.user_id = require_value_from_dict(obj, 'user_id')
         self.author = require_value_from_dict(obj, 'author')
