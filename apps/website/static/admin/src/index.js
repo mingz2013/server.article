@@ -52,14 +52,6 @@ $(document).ready(() => {
         window.controller = new ArticleListController();
     });
 
-    //new ArticleAddController();
-    //new ArticleDetailController();
-    //new ArticleEditController();
-    //new ArticleListController();
-
-
-
-
 
 
 });
