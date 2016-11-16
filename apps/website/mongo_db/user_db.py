@@ -12,6 +12,14 @@ class UserDB(object):
         pass
 
     @staticmethod
+    def check_login(user):
+        user = mongo_client_db.users.find_one(user)
+        if user:
+            return True
+        else:
+            return False
+
+    @staticmethod
     def remove_all_users():
         mongo_client_db.users.drop()
 

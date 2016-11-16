@@ -10,7 +10,8 @@ class UserAPIService(object):
         pass
 
     @staticmethod
-    def login():
+    def login(user):
+        UserDB.check_login(user)
         pass
 
     @staticmethod

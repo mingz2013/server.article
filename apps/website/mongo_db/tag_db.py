@@ -13,9 +13,9 @@ class TagDB(object):
 
     @staticmethod
     def get_tag_list():
-        tag_list = mongo_client_db.tag.find({}, {"_id": 1, "title": 1})
+        tag_list = mongo_client_db.tags.find({}, {"_id": 1, "title": 1})
         return tag_list
 
     @staticmethod
     def add_tag(tag):
-        mongo_client_db.tag.insert(model2dict(tag))
+        mongo_client_db.tags.insert(model2dict(tag))
