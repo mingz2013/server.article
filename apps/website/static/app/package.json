@@ -9,6 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm i && webpack --progress --profile --colors --display-error-details --display-cached",
+    "publish": "npm i && webpack -p --progress --profile --colors --display-error-details --display-cached",
     "start": "npm i && webpack && node ./node_modules/http-server/bin/http-server . -p 8080 -o",
     "watch": "npm i && webpack -d --watch"
   },
