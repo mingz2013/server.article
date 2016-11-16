@@ -33,16 +33,16 @@ class ArticleListController {
         });
 
 
-        $('#article_detail_btn').click(() => {
-            location.href = "/admin/article/detail/" + $('#article_id').val();
-        });
-
-        $('#article_edit_btn').click(() => {
-            location.href = "/admin/article/edit/" + $('#article_id').val();
-        });
-        $('#article_remove_btn').click(() => {
-            article_service.remove_article($('#article_id').val());
-        });
+        //$('#article_detail_btn').click(() => {
+        //    location.href = "/admin/article/detail/" + $('#article_id').val();
+        //});
+        //
+        //$('#article_edit_btn').click(() => {
+        //    location.href = "/admin/article/edit/" + $('#article_id').val();
+        //});
+        //$('#article_remove_btn').click(() => {
+        //    article_service.remove_article($('#article_id').val());
+        //});
 
 
     }

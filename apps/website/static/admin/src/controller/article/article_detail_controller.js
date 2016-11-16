@@ -27,7 +27,11 @@ class ArticleDetailController {
             location.href = "/admin/article/edit/" + article_id;
         });
         $('#article_remove_btn').click(() => {
-            article_service.remove_article(article_id);
+            article_service.remove_article(article_id).then((result)=> {
+                location.href = "/admin/article/list";
+            }).catch((errmsg)=> {
+                console.log(errmsg);
+            });
         });
 
 
