@@ -12,12 +12,10 @@
 {% block menubar %}
 <ul>
     <li><a href="{{ url_for('home_controller.index') }}">Home</a></li>
-    {% for category in category_list %}
-    <li><a href="{{ url_for('article_controller.article_list_by_category', category=category.title) }}">{{
-        category.title }}</a></li>
-    {% endfor %}
+    <li><a href="{{ url_for('article_controller.article_list_all') }}">Articles</a></li>
     <li><a href="{{ url_for('home_controller.about') }}">About</a></li>
     <li><a href="{{ url_for('home_controller.contact') }}">Contact</a></li>
+    <li>Other wait time..</li>
 </ul>
 {% endblock %}
 
