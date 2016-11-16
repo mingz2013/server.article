@@ -10,8 +10,15 @@ class ArticleAPIService(object):
         pass
 
     @staticmethod
-    def get_article_list():
-        article_list = ArticleDB.get_article_list()
+    def get_article_list(category=None, tag=None, month=None):
+        if category:
+            article_list = ArticleDB.get_article_list_by_category(category)
+        elif tag:
+            article_list = ArticleDB.get_article_list_by_tag(tag)
+        elif month:
+            article_list = ArticleDB.get_article_list_by_month(month)
+        else:
+            article_list = ArticleDB.get_article_list()
         i = 0
         article_list_copy = []
         for article in article_list:

@@ -17,6 +17,21 @@ class ArticleDB(object):
         return article_list
 
     @staticmethod
+    def get_article_list_by_category(category):
+        article_list = mongo_client_db.articles.find({"category": category})
+        return article_list
+
+    @staticmethod
+    def get_article_list_by_tag(tag):
+        article_list = mongo_client_db.articles.find({"tag": tag})
+        return article_list
+
+    @staticmethod
+    def get_article_list_by_month(month):
+        article_list = mongo_client_db.articles.find({"month": month})
+        return article_list
+
+    @staticmethod
     def get_article_by_id(article_id):
         article = mongo_client_db.articles.find_one({"_id": ObjectId(article_id)})
         return article
