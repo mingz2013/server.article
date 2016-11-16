@@ -23,7 +23,7 @@ class ArticleDB(object):
 
     @staticmethod
     def get_article_list_by_tag(tag):
-        article_list = mongo_client_db.articles.find({"tag": tag})
+        article_list = mongo_client_db.articles.find({"tags": tag})
         return article_list
 
     @staticmethod
