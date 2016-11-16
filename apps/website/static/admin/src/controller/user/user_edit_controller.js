@@ -24,7 +24,7 @@ class UserEditController {
             console.log(errmsg)
         });
 
-        $('#user_update_btn').click(() => {
+        $('#user_edit_btn').click(() => {
             let user = {
                 "_id": $('#user_id').val(),
                 "username": $('#username').val(),

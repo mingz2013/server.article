@@ -32,7 +32,7 @@ $(document).ready(() => {
     $('#user_detail').show(()=> {
         window.controller = new UserDetailController();
     });
-    $('#user_update').show(()=> {
+    $('#user_edit').show(()=> {
         window.controller = new UserEditController();
     });
     $('#user_add').show(()=> {
