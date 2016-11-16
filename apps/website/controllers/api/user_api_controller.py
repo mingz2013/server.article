@@ -9,11 +9,19 @@ from ...models.user import User
 api = Blueprint('user_api_controller', __name__, url_prefix='/api/user')
 
 
-# TODO 前端用js获取 和 操作数据, 调用这里的接口
 @api.route('/', methods=['GET'])
 def index():
     return "user index"
 
+
+@api.route('/', methods=['POST'])
+def login():
+    try:
+        user = User(request.form)
+        result = UserAPIService.login(user)
+        return jsonify({'retcode': 0, 'errmsg': "", 'result': result})
+    except Exception, e:
+        return jsonify({'retcode': -1, 'errmsg': e.message, 'result': ""})
 
 @api.route('/list', methods=['GET'])
 def list():

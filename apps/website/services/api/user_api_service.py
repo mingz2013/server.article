@@ -10,6 +10,10 @@ class UserAPIService(object):
         pass
 
     @staticmethod
+    def login():
+        pass
+
+    @staticmethod
     def get_user_list():
         user_list = UserDB.get_user_list()
         user_list_copy = []
