@@ -18,16 +18,20 @@ class Article(Base0):
         self.title = require_value_from_dict(obj, 'title')
         self.content = require_value_from_dict(obj, 'content')
 
-        self.user_id = require_value_from_dict(obj, 'user_id')
+        # self.user_id = require_value_from_dict(obj, 'user_id')
+        self.author = require_value_from_dict(obj, 'author')
 
         self.create_time = time.time()
-        self.update_time = time.time()
+        # self.update_time = time.time()
+
+        self.from_site = require_value_from_dict(obj, 'from_site')
+        self.from_url = require_value_from_dict(obj, 'from_url')
 
         self.category = require_value_from_dict(obj, 'category')
         self.tags = require_value_from_dict(obj, 'tags')
 
         self.status = 0  # -1: 删除, 0: 草稿, 1:发布
-        self.publish_time = None
+        # self.publish_time = None
 
         self.view_times = 0
 

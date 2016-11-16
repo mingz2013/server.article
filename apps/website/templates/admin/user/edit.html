@@ -6,8 +6,15 @@
 <div id="user_edit">
     <input id="user_id" value="{{ user_id }}" hidden/>
     username: <input id="username"/><br/>
-    password: <input id="password"/><br/>
-    password2: <input id="password2"/><br/>
+    password:
+    <button id="change_password_btn">change</button>
+    <br/>
+    <div id="change_password_box">
+        old password: <input type="password" id="old_password"/><br/>
+        new password: <input type="password" id="new_password"/><br/>
+        new password2:<input type="password" id="new_password_2"/><br/>
+        <button id="change_password_btn_2">change</button>
+    </div>
     email: <input id="email"/><br/>
     mobile: <input id="mobile"/><br/>
     sex: <input id="sex"/><br/>

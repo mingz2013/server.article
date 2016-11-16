@@ -19,7 +19,7 @@ class UserListController {
                     '<td>' + index + '</td>' +
                     '<td><a href="/admin/user/detail/' + _id + '">' + username + '</a></td>' +
                     '<td>' + permission + '</td>' +
-                    '<td><a href="/admin/user/update/' + _id + '">edit</a></td>' +
+                    '<td><a href="/admin/user/edit/' + _id + '">edit</a></td>' +
                     '<td><a href="javascript:void(0);" onclick="window.controller.remove_user(\'' + _id + '\')">remove</a></td>' +
                     '</tr>';
             });

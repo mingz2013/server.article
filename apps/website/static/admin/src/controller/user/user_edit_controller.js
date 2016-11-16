@@ -24,6 +24,17 @@ class UserEditController {
             console.log(errmsg)
         });
 
+        $('#change_password_btn').click(()=> {
+            $('#change_password_box').toggle();
+        });
+
+        $('#change_password_btn_2').click(()=> {
+            let old_password = $('#old_password').val();
+            let new_password = $('#new_password').val();
+            let new_password_2 = $('#new_password_2').val();
+
+        });
+
         $('#user_edit_btn').click(() => {
             let user = {
                 "_id": $('#user_id').val(),
