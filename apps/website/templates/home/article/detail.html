@@ -7,7 +7,7 @@
     <input id="article_id" value="{{ article._id }}" hidden/>
     <h1 id="title">{{ article.title }}</h1><br/>
     <div>
-        author: <span id="author">{{ article.author.name }}</span><br/>
+        author: <span id="author">{{ article.author.username }}</span><br/>
         category: <span id="category">{{ article.category }}</span><br/>
         tags: <span id="tags">
         {% for tag in tag_list %}
