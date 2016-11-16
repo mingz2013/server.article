@@ -15,7 +15,7 @@ def index():
     return 'article index'
 
 
-@api.route('/article/list', methods=['GET'])
+@api.route('/list', methods=['GET'])
 def article_list_all():
     category_list = CategoryAPIService.get_category_list()
     tag_list = TagAPIService.get_tag_list()
@@ -24,7 +24,7 @@ def article_list_all():
                            category_list=category_list, tag_list=tag_list, article_list=article_list)
 
 
-@api.route('/article/category/<category>', methods=['GET'])
+@api.route('/category/<category>', methods=['GET'])
 def article_list_by_category(category):
     category_list = CategoryAPIService.get_category_list()
     tag_list = TagAPIService.get_tag_list()
@@ -33,7 +33,7 @@ def article_list_by_category(category):
                            category_list=category_list, tag_list=tag_list, article_list=article_list)
 
 
-@api.route('/article/tag/<tag>', methods=['GET'])
+@api.route('/tag/<tag>', methods=['GET'])
 def article_list_by_tag(tag):
     category_list = CategoryAPIService.get_category_list()
     tag_list = TagAPIService.get_tag_list()
@@ -42,7 +42,7 @@ def article_list_by_tag(tag):
                            category_list=category_list, tag_list=tag_list, article_list=article_list)
 
 
-@api.route('/article/month/<month>', methods=['GET'])
+@api.route('/month/<month>', methods=['GET'])
 def article_list_by_month(month):
     category_list = CategoryAPIService.get_category_list()
     tag_list = TagAPIService.get_tag_list()
@@ -51,7 +51,7 @@ def article_list_by_month(month):
                            category_list=category_list, tag_list=tag_list, article_list=article_list)
 
 
-@api.route('/article/detail/<article_id>', methods=['GET'])
+@api.route('/detail/<article_id>', methods=['GET'])
 def article_detail(article_id):
     category_list = CategoryAPIService.get_category_list()
     tag_list = TagAPIService.get_tag_list()
