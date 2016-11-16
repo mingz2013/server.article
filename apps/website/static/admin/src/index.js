@@ -14,6 +14,8 @@ import UserDetailController from './controller/user/user_detail_controller'
 import UserEditController from './controller/user/user_edit_controller'
 import UserListController from './controller/user/user_list_controller'
 
+import LoginController from './controller/login_controller'
+
 import $ from 'jQuery'
 
 //import user_service from './services/user_service'
@@ -50,6 +52,10 @@ $(document).ready(() => {
     });
     $('#article_list').show(()=> {
         window.controller = new ArticleListController();
+    });
+
+    $('#login_box').show(()=> {
+        window.controller = new LoginController();
     });
 
 
