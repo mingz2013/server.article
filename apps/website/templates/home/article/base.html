@@ -15,6 +15,12 @@
         <li><a href="{{ url_for('article_controller.article_list_by_tag', tag=tag.title) }}">{{ tag.title }}</a></li>
         {% endfor %}
     </ul>
+    <ul>
+        {% for month in month_list %}
+        <li><a href="{{ url_for('article_controller.article_list_by_month', month=month.title) }}">{{ month.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}
 
