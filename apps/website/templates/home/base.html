@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
-{% block head %}
-{{ super() }}
+{% block head_script %}
 <script type="text/javascript" src="{{ url_for('static', filename = 'app/dist/bundle.js') }}"></script>
 {% endblock %}
 
