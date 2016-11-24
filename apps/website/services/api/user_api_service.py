@@ -1,8 +1,8 @@
 # -*- coding:utf-8 -*-
 __author__ = 'zhaojm'
 
-from ....commons.mongo_db.user.user_db import UserDB
-from ...utils.utils import model2dict
+from commons.mongo_db.user.user_db import UserDB
+from commons.utils.utils import model2dict
 
 
 class UserAPIService(object):
