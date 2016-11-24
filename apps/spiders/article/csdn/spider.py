@@ -12,8 +12,6 @@ from site_client import SiteClient
 class Spider(object):
     def __init__(self):
         self._client = SiteClient(proxies={})
-        self._city_list = []
-        self._industry_list = []
         pass
 
     def run(self):
