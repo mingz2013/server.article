@@ -6,9 +6,9 @@ import logging
 # import time
 # import urllib2
 
-from http_client import HTTPClient
+from commons.spider.http_client import HTTPClient
 
-from exception import Error302, Error403, Error404, Error502, Error503, ErrorStatusCode, HttpClientError
+from commons.spider.exception import Error302, Error403, Error404, Error502, Error503, ErrorStatusCode, HttpClientError
 from config import default_headers, USER_AGENTS
 import random
 from config import download_timeout
