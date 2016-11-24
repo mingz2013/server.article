@@ -31,9 +31,11 @@ def _import_submodules_from_package(package):
     import pkgutil
 
     modules = []
-    for importer, modname, ispkg in pkgutil.iter_modules(package.__path__,
-                                                         prefix=package.__name__ + "."):
-        modules.append(__import__(modname, fromlist="dummy"))
+    for importer, modname, ispkg in pkgutil.iter_modules(package.__path__, prefix=package.__name__ + "."):
+        if ispkg:
+            modules.extend(_import_submodules_from_package(__import__(modname, fromlist="dummy")))
+        else:
+            modules.append(__import__(modname, fromlist="dummy"))
     return modules
 
 
@@ -42,18 +44,15 @@ def register_routes(app):
     from flask.blueprints import Blueprint
 
     for module in _import_submodules_from_package(controllers):
-        for sub_module in _import_submodules_from_package(module):
-            if hasattr(sub_module, 'main'):
-                bp = getattr(sub_module, 'main')
-            elif hasattr(sub_module, 'wx'):
-                bp = getattr(sub_module, 'wx')
-            else:
-                bp = getattr(sub_module, 'api')
+        if hasattr(module, 'api'):
+            bp = getattr(module, 'api')
+        else:
+            app.logger.error('api not in module')
 
-            if bp and isinstance(bp, Blueprint):
-                app.register_blueprint(bp)
-            else:
-                app.logger.error('bp is not blusprint')
+        if bp and isinstance(bp, Blueprint):
+            app.register_blueprint(bp)
+        else:
+            app.logger.error('bp is not blusprint')
 
     @app.errorhandler(403)
     def page_403(error):
