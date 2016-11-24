@@ -2,13 +2,27 @@
 
 {% block title %}index{% endblock %}
 
-{% block main %}
-<div id="article_list">
-    <ul>
-        {% for article in article_list %}
-        <li><a href="{{ url_for('article_controller.article_detail', article_id=article._id) }}">{{ article.title }}</a>
-        </li>
-        {% endfor %}
-    </ul>
-</div>
+{% block sub_main %}
+<div class="col-sm-8 blog-main">
+
+    {% for article in article_list %}
+    <div class="blog-post">
+        <h2 class="blog-post-title">{{ article.title }}</h2>
+        <p class="blog-post-meta">{{ article.create_time }} <a href="#">Mark</a></p>
+
+        {{ article.content }}
+
+    </div><!-- /.blog-post -->
+
+    {% endfor %}
+
+
+    <nav>
+        <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#">Next</a></li>
+        </ul>
+    </nav>
+
+</div><!-- /.blog-main -->
 {% endblock %}

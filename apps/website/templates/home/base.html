@@ -9,18 +9,24 @@
 {% block title %}home{% endblock %}
 
 {% block body %}
-
 {% block menubar %}
-<ul>
-    <li><a href="{{ url_for('home_controller.index') }}">Home</a></li>
+<div class="blog-masthead">
+    <div class="container">
+        <nav class="blog-nav">
 
-    <li><a href="{{ url_for('article_controller.index') }}">Article</a></li>
-    <li><a href="{{ url_for('joke_controller.index') }}">Joke</a></li>
+            <a class="blog-nav-item active" href="{{ url_for('home_controller.index') }}">Home</a>
 
-    <li><a href="{{ url_for('home_controller.about') }}">About</a></li>
-    <li><a href="{{ url_for('home_controller.contact') }}">Contact</a></li>
+            <a class="blog-nav-item" href="{{ url_for('article_controller.index') }}">Article</a>
+            <a class="blog-nav-item" href="{{ url_for('joke_controller.index') }}">Joke</a>
 
-</ul>
+            <a class="blog-nav-item" href="{{ url_for('home_controller.about') }}">About</a>
+            <a class="blog-nav-item" href="{{ url_for('home_controller.contact') }}">Contact</a>
+
+        </nav>
+    </div>
+</div>
+
+
 {% endblock %}
 
 {% block main %}
