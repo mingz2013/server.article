@@ -12,7 +12,11 @@ api = Blueprint('article_controller', __name__, url_prefix='/article')
 
 @api.route('/', methods=['GET'])
 def index():
-    return render_template("home/article/index.html")
+    category_list = CategoryAPIService.get_category_list()
+    tag_list = TagAPIService.get_tag_list()
+    article_list = ArticleAPIService.get_article_list()
+    return render_template("home/article/list.html",
+                           category_list=category_list, tag_list=tag_list, article_list=article_list)
 
 
 @api.route('/list', methods=['GET'])
