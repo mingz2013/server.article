@@ -13,19 +13,14 @@ api = Blueprint('home_controller', __name__, url_prefix='')
 def index():
     category_list = CategoryAPIService.get_category_list()
     tag_list = TagAPIService.get_tag_list()
-    return render_template("home/index.html", category_list=category_list, tag_list=tag_list)
+    return render_template("home/home/index.html", category_list=category_list, tag_list=tag_list)
 
 
 @api.route('/about', methods=['GET'])
 def about():
-    return render_template("home/about.html")
+    return render_template("home/home/about.html")
 
 
 @api.route('/contact', methods=['GET'])
 def contact():
-    return render_template("home/contact.html")
-
-
-@api.route('/debug', methods=['GET'])
-def debug():
-    return render_template("home/debug.html")
+    return render_template("home/home/contact.html")
