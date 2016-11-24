@@ -8,4 +8,4 @@ api = Blueprint('joke_controller', __name__, url_prefix='/joke')
 
 @api.route('/', methods=['GET'])
 def index():
-    return 'joke index'
+    return render_template("home/joke/index.html")

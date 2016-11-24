@@ -12,7 +12,7 @@ api = Blueprint('article_controller', __name__, url_prefix='/article')
 
 @api.route('/', methods=['GET'])
 def index():
-    return 'article index'
+    return render_template("home/article/index.html")
 
 
 @api.route('/list', methods=['GET'])
