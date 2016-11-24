@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 __author__ = 'zhaojm'
 
-from ...mongo_db.user_db import UserDB
+from ...mongo_db.user.user_db import UserDB
 
 
 class AdminService(object):

@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 __author__ = 'zhaojm'
 
-from ...mongo_db.comment_db import CommentDB
+from ...mongo_db.article.comment_db import CommentDB
 
 
 class CommentAPIService(object):

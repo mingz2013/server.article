@@ -3,8 +3,8 @@ __author__ = 'zhaojm'
 
 import time
 
-from base0 import Base0
-from ..utils.utils import require_value_from_dict
+from ..base0 import Base0
+from ...utils.utils import require_value_from_dict
 
 
 class Site(Base0):

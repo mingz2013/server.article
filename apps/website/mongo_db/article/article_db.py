@@ -3,8 +3,8 @@ __author__ = 'zhaojm'
 
 from bson import ObjectId
 
-from mongo_client_db import mongo_client_db
-from ..utils.utils import model2dict
+from ..mongo_client_db import mongo_client_db
+from ...utils.utils import model2dict
 
 
 class ArticleDB(object):
