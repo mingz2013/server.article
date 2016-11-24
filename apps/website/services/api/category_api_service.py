@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 __author__ = 'zhaojm'
 
-from ...mongo_db.article.category_db import CategoryDB
+from ....commons.mongo_db.article.category_db import CategoryDB
 
 
 class CategoryAPIService(object):
