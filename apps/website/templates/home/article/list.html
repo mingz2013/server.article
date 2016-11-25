@@ -8,7 +8,7 @@
     {% for article in article_list %}
     <div class="blog-post">
         <h2 class="blog-post-title">{{ article.title }}</h2>
-        <p class="blog-post-meta">{{ article.create_time }} <a href="#">Mark</a></p>
+        <p class="blog-post-meta">{{ article.create_time }} by <a href="#">{{ article.author }}</a></p>
 
         {{ article.content }}
 
